@@ -1,5 +1,5 @@
 <?php
-include "basedados.h";
+include "../basedados/basedados.h";
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM filme WHERE idFilme = $id";

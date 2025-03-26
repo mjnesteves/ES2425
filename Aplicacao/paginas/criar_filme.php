@@ -1,5 +1,5 @@
 <?php
-include "basedados.h";
+include "../basedados/basedados.h";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nomeFilme = $_POST['nomeFilme'];
