@@ -34,6 +34,9 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="pagina_filmes.php">Filmes</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pagina_gestao_filmes.php">Filmes Gestao</a>
+                    </li>
                 </ul>
             </div>
 
@@ -147,7 +150,7 @@ session_start();
     </section>
 
 
-    <footer class="footer fixed-bottom">
+    <footer class="footer">
         <div class="container text-center">
             <p class="footer-title">Codivideo</p>
             <p class="footer-text">© 2024-2025 Codivideo. Todos os direitos reservados.</p>

@@ -46,7 +46,7 @@
                         <img src="imagens/list.svg" alt="Menu 1" class="menu-icon">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dark-dropdown" aria-labelledby="menu1Dropdown">
-                    <div class="dropdown-header text-center text-info" style="font-size: 18px; font-weight: bold;">Géneros:</div>
+                        <a class="dropdown-item">Géneros:</a>
                         <a class="dropdown-item" href="genero.php?genero=1">Ação</a>
                         <a class="dropdown-item" href="genero.php?genero=2">Aventura</a>
                         <a class="dropdown-item" href="genero.php?genero=3">Comédia</a>
