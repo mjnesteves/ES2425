@@ -1,1 +1,0 @@
-Para adição de pasta no repositório, esta tem de ter pelo menos um ficheiro.
