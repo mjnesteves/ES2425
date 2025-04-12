@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Mar-2025 às 09:51
--- Versão do servidor: 10.4.32-MariaDB
--- versão do PHP: 8.2.12
+-- Generation Time: Apr 03, 2025 at 11:51 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,17 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `codivideo`
+-- Database: `codivideo`
 --
-
-CREATE DATABASE IF NOT EXISTS `codivideo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `codivideo`;
-
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `estadofilme`
+-- Table structure for table `estadofilme`
 --
 
 CREATE TABLE `estadofilme` (
@@ -37,7 +33,7 @@ CREATE TABLE `estadofilme` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `estadofilme`
+-- Dumping data for table `estadofilme`
 --
 
 INSERT INTO `estadofilme` (`idEstadoFilme`, `descricao`) VALUES
@@ -48,7 +44,7 @@ INSERT INTO `estadofilme` (`idEstadoFilme`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `estadoreserva`
+-- Table structure for table `estadoreserva`
 --
 
 CREATE TABLE `estadoreserva` (
@@ -57,7 +53,7 @@ CREATE TABLE `estadoreserva` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `estadoreserva`
+-- Dumping data for table `estadoreserva`
 --
 
 INSERT INTO `estadoreserva` (`idEstadoReserva`, `descricao`) VALUES
@@ -68,7 +64,7 @@ INSERT INTO `estadoreserva` (`idEstadoReserva`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `filme`
+-- Table structure for table `filme`
 --
 
 CREATE TABLE `filme` (
@@ -81,7 +77,7 @@ CREATE TABLE `filme` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `filme`
+-- Dumping data for table `filme`
 --
 
 INSERT INTO `filme` (`idFilme`, `nomeFilme`, `idEstadoFilme`, `descricao`, `idGenero`, `imagem`) VALUES
@@ -134,7 +130,7 @@ INSERT INTO `filme` (`idFilme`, `nomeFilme`, `idEstadoFilme`, `descricao`, `idGe
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `generofilme`
+-- Table structure for table `generofilme`
 --
 
 CREATE TABLE `generofilme` (
@@ -143,7 +139,7 @@ CREATE TABLE `generofilme` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `generofilme`
+-- Dumping data for table `generofilme`
 --
 
 INSERT INTO `generofilme` (`idGenero`, `descricao`) VALUES
@@ -160,7 +156,7 @@ INSERT INTO `generofilme` (`idGenero`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `loja`
+-- Table structure for table `loja`
 --
 
 CREATE TABLE `loja` (
@@ -171,7 +167,7 @@ CREATE TABLE `loja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `loja`
+-- Dumping data for table `loja`
 --
 
 INSERT INTO `loja` (`idLoja`, `nomeLoja`, `morada`, `telefone`) VALUES
@@ -182,7 +178,7 @@ INSERT INTO `loja` (`idLoja`, `nomeLoja`, `morada`, `telefone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reserva`
+-- Table structure for table `reserva`
 --
 
 CREATE TABLE `reserva` (
@@ -199,7 +195,7 @@ CREATE TABLE `reserva` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tipoutilizador`
+-- Table structure for table `tipoutilizador`
 --
 
 CREATE TABLE `tipoutilizador` (
@@ -208,7 +204,7 @@ CREATE TABLE `tipoutilizador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tipoutilizador`
+-- Dumping data for table `tipoutilizador`
 --
 
 INSERT INTO `tipoutilizador` (`idTipoUtilizador`, `descricao`) VALUES
@@ -219,46 +215,47 @@ INSERT INTO `tipoutilizador` (`idTipoUtilizador`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `utilizador`
+-- Table structure for table `utilizador`
 --
 
 CREATE TABLE `utilizador` (
   `idUtilizador` int(2) NOT NULL,
-  `nomeUtilizador` varchar(60) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(60) NOT NULL,
   `password` varchar(60) NOT NULL,
-  `idTipoUtilizador` int(1) NOT NULL,
+  `tipoUtilizador` int(1) NOT NULL,
   `dataNascimento` date NOT NULL,
   `morada` varchar(60) NOT NULL,
   `telefone` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `utilizador`
+-- Dumping data for table `utilizador`
 --
 
-INSERT INTO `utilizador` (`idUtilizador`, `nomeUtilizador`, `password`, `idTipoUtilizador`, `dataNascimento`, `morada`, `telefone`) VALUES
-(1, 'admin@codivideo.pt', '21232f297a57a5a743894a0e4a801fc3', 1, '2000-02-17', 'Castelo Branco', 912345678),
-(2, 'empregado@codivideo.pt', '5b60891c819bef17121c175e194202b2', 2, '2002-05-10', 'Covilha', 272123272),
-(3, 'utilizador@gmail.com', '8e2d3075c68406e29eddb83cefbc1fdc', 3, '2001-10-07', 'Alcains', 272272272);
+INSERT INTO `utilizador` (`idUtilizador`, `nome`, `email`, `password`, `tipoUtilizador`, `dataNascimento`, `morada`, `telefone`) VALUES
+(1, 'João Fonseca', 'admin@codivideo.pt', '21232f297a57a5a743894a0e4a801fc3', 1, '2045-02-10', 'Viana do Castelo', 912345678),
+(2, '', 'empregado@codivideo.pt', '5b60891c819bef17121c175e194202b2', 2, '2002-05-10', 'Covilha', 272123272),
+(3, '', 'utilizador@gmail.com', '8e2d3075c68406e29eddb83cefbc1fdc', 3, '2001-10-07', 'Alcains', 272272272);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `estadofilme`
+-- Indexes for table `estadofilme`
 --
 ALTER TABLE `estadofilme`
   ADD PRIMARY KEY (`idEstadoFilme`);
 
 --
--- Índices para tabela `estadoreserva`
+-- Indexes for table `estadoreserva`
 --
 ALTER TABLE `estadoreserva`
   ADD PRIMARY KEY (`idEstadoReserva`);
 
 --
--- Índices para tabela `filme`
+-- Indexes for table `filme`
 --
 ALTER TABLE `filme`
   ADD PRIMARY KEY (`idFilme`),
@@ -266,19 +263,19 @@ ALTER TABLE `filme`
   ADD KEY `fk_generoFilme` (`idGenero`);
 
 --
--- Índices para tabela `generofilme`
+-- Indexes for table `generofilme`
 --
 ALTER TABLE `generofilme`
   ADD PRIMARY KEY (`idGenero`);
 
 --
--- Índices para tabela `loja`
+-- Indexes for table `loja`
 --
 ALTER TABLE `loja`
   ADD PRIMARY KEY (`idLoja`);
 
 --
--- Índices para tabela `reserva`
+-- Indexes for table `reserva`
 --
 ALTER TABLE `reserva`
   ADD PRIMARY KEY (`idReserva`),
@@ -288,60 +285,60 @@ ALTER TABLE `reserva`
   ADD KEY `fk_loja` (`idLoja`);
 
 --
--- Índices para tabela `tipoutilizador`
+-- Indexes for table `tipoutilizador`
 --
 ALTER TABLE `tipoutilizador`
   ADD PRIMARY KEY (`idTipoUtilizador`);
 
 --
--- Índices para tabela `utilizador`
+-- Indexes for table `utilizador`
 --
 ALTER TABLE `utilizador`
   ADD PRIMARY KEY (`idUtilizador`),
-  ADD UNIQUE KEY `nomeUtilizador` (`nomeUtilizador`),
-  ADD KEY `fk_tipoUtilizador` (`idTipoUtilizador`);
+  ADD UNIQUE KEY `nomeUtilizador` (`email`),
+  ADD KEY `fk_tipoUtilizador` (`tipoUtilizador`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `filme`
+-- AUTO_INCREMENT for table `filme`
 --
 ALTER TABLE `filme`
   MODIFY `idFilme` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT de tabela `loja`
+-- AUTO_INCREMENT for table `loja`
 --
 ALTER TABLE `loja`
   MODIFY `idLoja` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `reserva`
+-- AUTO_INCREMENT for table `reserva`
 --
 ALTER TABLE `reserva`
   MODIFY `idReserva` int(2) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `utilizador`
+-- AUTO_INCREMENT for table `utilizador`
 --
 ALTER TABLE `utilizador`
-  MODIFY `idUtilizador` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUtilizador` int(2) NOT NULL AUTO_INCREMENT;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `filme`
+-- Constraints for table `filme`
 --
 ALTER TABLE `filme`
   ADD CONSTRAINT `fk_estadoFilme` FOREIGN KEY (`idEstadoFilme`) REFERENCES `estadofilme` (`idEstadoFilme`),
   ADD CONSTRAINT `fk_generoFilme` FOREIGN KEY (`idGenero`) REFERENCES `generofilme` (`idGenero`);
 
 --
--- Limitadores para a tabela `reserva`
+-- Constraints for table `reserva`
 --
 ALTER TABLE `reserva`
   ADD CONSTRAINT `fk_estadoReserva` FOREIGN KEY (`idEstadoReserva`) REFERENCES `estadoreserva` (`idEstadoReserva`),
@@ -350,10 +347,10 @@ ALTER TABLE `reserva`
   ADD CONSTRAINT `fk_utilizador` FOREIGN KEY (`idUtilizador`) REFERENCES `utilizador` (`idUtilizador`);
 
 --
--- Limitadores para a tabela `utilizador`
+-- Constraints for table `utilizador`
 --
 ALTER TABLE `utilizador`
-  ADD CONSTRAINT `fk_tipoUtilizador` FOREIGN KEY (`idTipoUtilizador`) REFERENCES `tipoutilizador` (`idTipoUtilizador`);
+  ADD CONSTRAINT `fk_tipoUtilizador` FOREIGN KEY (`tipoUtilizador`) REFERENCES `tipoutilizador` (`idTipoUtilizador`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

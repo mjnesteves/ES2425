@@ -1,6 +1,22 @@
 <?php
 include "../basedados/basedados.h";
 
+// Buscar géneros
+$generos = [];
+$sqlGenero = "SELECT idGenero, descricao FROM generofilme";
+$resGenero = mysqli_query($conn, $sqlGenero);
+while ($row = mysqli_fetch_assoc($resGenero)) {
+    $generos[] = $row;
+}
+
+// Buscar estados
+$estados = [];
+$sqlEstado = "SELECT idEstadoFilme, descricao FROM estadofilme";
+$resEstado = mysqli_query($conn, $sqlEstado);
+while ($row = mysqli_fetch_assoc($resEstado)) {
+    $estados[] = $row;
+}
+
 $id = $_GET['id'];
 $sql = "SELECT * FROM filme WHERE idFilme = $id";
 $resultado = mysqli_query($conn, $sql);
@@ -11,7 +27,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idEstadoFilme = $_POST['idEstadoFilme'];
     $descricao = $_POST['descricao'];
     $idGenero = $_POST['idGenero'];
-    $imagem = $_POST['imagem'];
+
+    if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0){
+        $nomeTemporario = $_FILES['imagem']['tmp_name'];
+        $imagem = basename($_FILES['imagem']['name']);
+        $caminhoDestino = "Imagens/" . $imagem;
+
+        // Move o ficheiro para a pasta /Imagens
+        if (move_uploaded_file($nomeTemporario, $caminhoDestino)) {
+            // Upload feito com sucesso
+        }else {
+            echo "Erro ao mover o ficheiro!";
+            exit;
+        }
+    } else {
+        // Nenhuma imagem nova foi enviada → manter a antiga
+        $imagem = $_POST['imagemAntiga'];
+    }
 
     $sql = "UPDATE filme SET 
             nomeFilme='$nomeFilme', 
@@ -20,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             idGenero='$idGenero', 
             imagem='$imagem' 
             WHERE idFilme = $id";
+
     mysqli_query($conn, $sql);
     header("Location: pagina_gestao_filmes.php");
 }
@@ -65,21 +98,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <h1 class="mb-4">Editar Filme</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <label>Nome do Filme:</label>
             <input type="text" name="nomeFilme" class="form-control" value="<?= $filme['nomeFilme'] ?>" required>
 
-            <label>ID Estado Filme:</label>
-            <input type="number" name="idEstadoFilme" class="form-control" value="<?= $filme['idEstadoFilme'] ?>" required>
+            <label>Estado do Filme:</label>
+            <select name="idEstadoFilme" class="form-control" required>
+                <?php foreach ($estados as $estado): ?>
+                    <option value="<?= $estado['idEstadoFilme'] ?>"><?= $estado['descricao'] ?></option>
+                <?php endforeach; ?>
+            </select>
 
             <label>Descrição:</label>
             <textarea name="descricao" class="form-control" rows="4" required><?= $filme['descricao'] ?></textarea>
 
-            <label>ID Género:</label>
-            <input type="number" name="idGenero" class="form-control" value="<?= $filme['idGenero'] ?>" required>
+            <label>Género:</label>
+            <select name="idGenero" class="form-control" required>
+                <?php foreach ($generos as $genero): ?>
+                    <option value="<?= $genero['idGenero'] ?>"><?= $genero['descricao'] ?></option>
+                <?php endforeach; ?>
+            </select>
 
             <label>Imagem (ficheiro):</label>
-            <input type="text" name="imagem" class="form-control" value="<?= $filme['imagem'] ?>">
+            <input type="file" name="imagem" class="form-control" accept="image/*">
+            <input type="hidden" name="imagemAntiga" value="<?= $filme['imagem'] ?>">
 
             <button type="submit" class="btn btn-primary mt-3">Guardar Alterações</button>
             <a href="pagina_gestao_filmes.php" class="btn btn-primary mt-3">Voltar</a>
