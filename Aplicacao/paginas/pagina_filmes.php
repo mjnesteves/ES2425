@@ -1,6 +1,18 @@
 <?php
-ob_start();
+
 session_start();
+include "../basedados/basedados.h";
+
+if (isset($_SESSION["idUtilizador"])) {
+    $idUtilizador = $_SESSION["idUtilizador"];
+    $nome = $_SESSION["nome"];
+    $tipoUtilizador= $_SESSION["tipoUtilizador"];
+    unset($_SESSION);
+    $_SESSION["idUtilizador"] = $idUtilizador;
+    $_SESSION["nome"] = $nome;
+    $_SESSION["tipoUtilizador"] = $tipoUtilizador;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,115 +30,61 @@ session_start();
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container d-flex justify-content-between align-items-center">
-            <!-- Logotipo à esquerda -->
-            <a class="navbar-brand" href="index.php">
-                <img src="imagens/Codivideo Logo2.png" alt="Codivideo" style="height: 50px;">
-            </a>
 
-            <!-- Menu principal alinhado à esquerda -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pagina_filmes.php">Filmes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pagina_gestao_filmes.php">Filmes Gestao</a>
-                    </li>
-                </ul>
-            </div>
+<?php include_once('nav_bar_menus.php'); ?>
 
-             <!-- Imagens à direita como botões -->
-             <div class="d-flex align-items-center">
-
-                <!-- Menu 1 (ícone de lista) -->
-                <div class="dropdown custom-dropdown mr-3">
-                    <a href="#" id="menu1Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="imagens/list.svg" alt="Menu 1" class="menu-icon">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dark-dropdown" aria-labelledby="menu1Dropdown">
-                    <div class="dropdown-header text-center text-info" style="font-size: 18px; font-weight: bold;">Géneros:</div>
-                        <a class="dropdown-item" href="genero.php?genero=1">Ação</a>
-                        <a class="dropdown-item" href="genero.php?genero=2">Aventura</a>
-                        <a class="dropdown-item" href="genero.php?genero=3">Comédia</a>
-                        <a class="dropdown-item" href="genero.php?genero=4">Documentário</a>
-                        <a class="dropdown-item" href="genero.php?genero=5">Desenhos Animados</a>
-                        <a class="dropdown-item" href="genero.php?genero=6">Drama</a>
-                        <a class="dropdown-item" href="genero.php?genero=7">Ficção Científica</a>
-                        <a class="dropdown-item" href="genero.php?genero=8">Terror</a>
-                        <a class="dropdown-item" href="genero.php?genero=9">Romance</a>
-
-                    </div>
-                </div>
-
-            <!-- Menu 2 (ícone de utilizador) -->
-            <div class="dropdown custom-dropdown">
-                <a href="#" id="menu2Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <img src="imagens/utilizador.svg" alt="Menu 2" class="menu-icon">
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dark-dropdown" aria-labelledby="menu2Dropdown">
-                    <a class="dropdown-item">Perfis:</a>
-                    <a class="dropdown-item" href="alterarperfil.html">Alterar Perfil</a>
-                    <a class="dropdown-item" href="ajuda.html">Ajuda</a>
-                    <a class="dropdown-item">A tua conta:</a>
-                    <a class="dropdown-item" href="definicoes.html">Definições</a>
-                    <a class="dropdown-item" href="login.html">Terminar Secção</a>
-                </div>
-            </div>
-
-        </div>
-    </nav>
 
     <section class="espaço">
-        
+
     </section>
 
 
     <section class="Filmes">
         <div class="container">
+
+
+
+
             <h2><strong>Filmes</strong></h2>
             <p>______________________________________</p>
+
+
+
+
             <div class="row">
                 <?php
-                    include "../basedados/basedados.h"; // Liga à base de dados ($conn)
-    
-                    $query = "SELECT nomeFilme, imagem, idEstadoFilme FROM filme";
+                $query = "SELECT nomeFilme, imagem, idEstadoFilme FROM filme";
 
-                    $resultado = mysqli_query($conn, $query);
-    
-                    if (!$resultado) {
-                        echo "<p>Erro ao obter filmes: " . mysqli_error($conn) . "</p>";
-                    } else {
-                        while ($filme = mysqli_fetch_assoc($resultado)) {
-                            
-                            $estado = intval($filme['idEstadoFilme']);
-        $estadoTexto = '';
-        $estadoCor = '';
+                $resultado = mysqli_query($conn, $query);
 
-        switch ($estado) {
-            case 1:
-                $estadoTexto = 'Disponível';
-                $estadoCor = 'green';
-                break;
-            case 2:
-                $estadoTexto = 'Reservado';
-                $estadoCor = 'orange';
-                break;
-            case 3:
-                $estadoTexto = 'Alugado';
-                $estadoCor = 'red';
-                break;
-            default:
-                $estadoTexto = 'Desconhecido';
-                $estadoCor = 'gray';
-        }
+                if (!$resultado) {
+                    echo "<p>Erro ao obter filmes: " . mysqli_error($conn) . "</p>";
+                } else {
+                    while ($filme = mysqli_fetch_assoc($resultado)) {
 
-        echo '<div class="col-lg-3 col-md-6 col-sm-12">
+                        $estado = intval($filme['idEstadoFilme']);
+                        $estadoTexto = '';
+                        $estadoCor = '';
+
+                        switch ($estado) {
+                            case 1:
+                                $estadoTexto = 'Disponível';
+                                $estadoCor = 'green';
+                                break;
+                            case 2:
+                                $estadoTexto = 'Reservado';
+                                $estadoCor = 'orange';
+                                break;
+                            case 3:
+                                $estadoTexto = 'Alugado';
+                                $estadoCor = 'red';
+                                break;
+                            default:
+                                $estadoTexto = 'Desconhecido';
+                                $estadoCor = 'gray';
+                        }
+
+                        echo '<div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="filmes">
                     <img src="imagens/' . htmlspecialchars($filme['imagem']) . '" alt="' . htmlspecialchars($filme['nomeFilme']) . '">
                     <p class="filmes-titulo"><strong>' . htmlspecialchars($filme['nomeFilme']) . '</strong></p>
@@ -137,26 +95,20 @@ session_start();
                     <a href="#" class="btn btn-primary">Ver Filme</a>
                 </div>
               </div>';
-    }
-                        }
-                    
+                    }
+                }
+
                 ?>
             </div>
         </div>
     </section>
 
     <section class="espaço">
-        
+
     </section>
 
 
-    <footer class="footer">
-        <div class="container text-center">
-            <p class="footer-title">Codivideo</p>
-            <p class="footer-text">© 2024-2025 Codivideo. Todos os direitos reservados.</p>
-            <p class="footer-text"><a href="https://www.codivideo.pt">www.codivideo.pt</a></p>
-        </div>
-    </footer>
+    <?php include_once('footer.php'); ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
