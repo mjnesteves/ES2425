@@ -26,6 +26,8 @@ function getDescricaoUtilizador($tipoUtilizador)
     }
 }
 
+
+// Mostra a descrição do tipo a ser utilizado na edição dos dados do utilizador
 function listaTipoUtilizadorAdmin($tipoUtilizador)
 {
 
