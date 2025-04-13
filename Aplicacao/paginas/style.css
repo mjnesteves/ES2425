@@ -204,11 +204,7 @@ section {
   width: 100%;
   margin-top: 0; /* Corrigido para encostar à navbar */
   background-color: #000;
-<<<<<<< HEAD
   overflow:visible;
-=======
-  overflow: hidden;
->>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
   position: relative;
 }
 
@@ -347,11 +343,8 @@ section {
   background-color: #000;
   border-color: #000;
   color: #fff;
-<<<<<<< HEAD
         font-weight: bold;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-=======
->>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
 }
 
 .btn-primary:hover {
@@ -434,7 +427,6 @@ html, body {
   display: flex;
   flex-direction: column;
 }
-<<<<<<< HEAD
 
 main {
   flex: 1;
@@ -474,44 +466,11 @@ textarea {
   border-radius: 1rem;
   max-width: 500px;
 }
-=======
->>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
 
 main {
   flex: 1;
 }
 
-<<<<<<< HEAD
 
 
 
-=======
-/* ===================== PÁGINA EDITAR UTILIZADOR ===================== */
-
-label {
-  font-weight: bold;
-}
-
-input,
-textarea {
-  margin-bottom: 1rem;
-}
-
-.container-editar {
-  background-color: rgba(0, 0, 0, 0.95);
-  padding: 2rem;
-  border-radius: 1rem;
-  margin-top: 2rem;
-  max-width: 500px;
-}
-
-/* ===================== PÁGINA CRIAR UTILIZADOR ===================== */
-
-.container-criar {
-  background-color: rgba(0, 0, 0, 0.95);
-  padding: 2rem;
-  border-radius: 1rem;
-  margin-top: 2rem;
-  max-width: 600px;
-}
->>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
