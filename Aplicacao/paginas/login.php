@@ -103,7 +103,7 @@
             }, 3000)
           } else {
             setTimeout(function() {
-              window.location.href = 'index.php';
+              window.location.href = 'pagina_inicial.php';
             }, 3000)
           }
         },

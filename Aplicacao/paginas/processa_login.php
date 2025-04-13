@@ -25,15 +25,12 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
 			$_SESSION["nome"] = $row["nome"];
 			$_SESSION["tipoUtilizador"] = $row["tipoUtilizador"];
 
-			//echo "<script> alert ('Fez Login!') </script>";
 			array_push($mensagem, " Bem vindo, " . $_SESSION["nome"] . "");
-			//echo "<script> setTimeout(function () { window.location.href = './index.php'; }, 0)</script>";
+			
 		} 
 	} else {
 
 		array_push($mensagem, "Credenciais Invalidas!");
-		//echo "<script> alert ('Credenciais Invalidas. Tente Novamente!') </script>";
-		//echo "<script> setTimeout(function () { window.location.href = './login.php'; }, 0)</script>";
 	}
 
 	$_SESSION['mensagem'] = $mensagem;
@@ -41,5 +38,5 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
 } else {
 
 	session_destroy();
-	header("refresh:0;url = ./index.php");
+	header("refresh:0;url = ./pagina_inicial.php");
 }

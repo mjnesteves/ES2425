@@ -78,7 +78,7 @@
                 <button type="submit" class="btn btn-primary mt-3">Atualizar</button>
 
 
-                <a href="index.php" class="btn btn-primary mt-3">Voltar</a>
+                <a href="pagina_inicial.php" class="btn btn-primary mt-3">Voltar</a>
             </form>
 
         </div>
@@ -138,7 +138,7 @@
             $.ajax({
                 success: function(response) {
                     if (mensagem[0] === 'Dados atualizados com sucesso') {
-                        window.location.href = 'index.php';
+                        window.location.href = 'pagina_inicial.php';
                     } else {
                         location.reload()
                     }

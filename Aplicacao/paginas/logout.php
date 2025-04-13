@@ -32,7 +32,7 @@ session_destroy();
 
 	<script>
 		setTimeout(function () {
-			window.location.href = 'index.php';
+			window.location.href = 'pagina_inicial.php';
 		}, 1000);
 	</script>
 
