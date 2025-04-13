@@ -20,6 +20,8 @@
 
 <body>
 
+<<<<<<< HEAD
+=======
   <style>
     body {
       background-image: url('Imagens/background.png');
@@ -61,6 +63,7 @@
   </style>
   </head>
 
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
   <?php
   ob_start();
   session_start();
@@ -76,6 +79,28 @@
   }
   ?>
 
+<<<<<<< HEAD
+<?php include "./nav_bar_menus.php"; ?>
+
+  <section class="section-form-login-criar">
+    <div class="container-login-criar ">
+      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+      <p class="text-white-50 mb-5">Introduza o seu email e password</p>
+      <form method="GET" id="formulario">
+        <div data-mdb-input-init class="form-outline form-white mb-3">
+          <input type="email" class="form-control form-control-lg" name="email" required />
+          <label class="form-label">Email</label>
+        </div>
+        <div data-mdb-input-init class="form-outline form-white mb-3">
+          <input type="password" class="form-control form-control-lg" name="password" required />
+          <label class="form-label">Password</label>
+        </div>
+        <p class="small mb-5 pb-lg-2" data-toggle="modal" data-target="#recuperarPassword"><a class="text-white-50">Esqueceu-se da password?</a></p>
+        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg px-5" type="submit" name="login">Login</button>
+      </form>
+      <p class="mt-3 mb-0">Não tem uma conta? <a href="criar_utilizador.php" class="text-white-50 fw-bold">Crie uma</a></p>
+    </div>
+=======
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid d-flex justify-content-center align-items-center">
       <!-- Logotipo à esquerda -->
@@ -87,7 +112,7 @@
       <div class="collapse navbar-collapse" id="navbarNav ">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Inicio</a>
+            <a class="nav-link" href="pagina_inicial.php">Inicio</a>
           </li>
         </ul>
       </div>
@@ -117,6 +142,7 @@
 
         </div>
       </div>
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
   </section>
 
 
@@ -125,6 +151,16 @@
   <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
+<<<<<<< HEAD
+        <div class="modal-header mx-auto">
+          <h3 class="font-weight-bold text-secondary">Informação do Sistema</h3>
+        </div>
+        <div class="modal-body mx-auto">
+          <h3 class="font-weight-bold" id="mensagem"> </h3>
+        </div>
+        <div class="modal-header mx-auto">
+          <h3 class="font-weight-bold text-secondary">A redirecionar...</h3>
+=======
         <div class="modal-header mt-1">
         </div>
         <div class="modal-body">
@@ -132,6 +168,7 @@
         </div>
         <div class="modal-footer mx-auto">
           <button id="botao" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">ok</button>
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
         </div>
       </div>
     </div>
@@ -156,16 +193,32 @@
             const linha = document.createElement('p')
             linha.innerText = erro
             screenToShow.append(linha);
+<<<<<<< HEAD
+          })
+          $("#login").modal('show');
+          if (mensagem[0] === 'Credenciais Invalidas!') {
+            setTimeout(function() {
+              window.location.href = 'login.php';
+            }, 3000)
+          } else {
+            setTimeout(function() {
+              window.location.href = 'index.php';
+            }, 3000)
+          }
+=======
 
           })
 
           $("#login").modal('show');
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
         },
         error: function(data) {
           alert("error");
         }
       });
     });
+<<<<<<< HEAD
+=======
 
 
 
@@ -175,7 +228,7 @@
           if (mensagem[0] === "Credenciais Invalidas!") {
             location.reload();
           }else{
-            window.location.href = 'index.php';
+            window.location.href = 'pagina_inicial.php';
           } 
         },
         error: function(xhr, status, error) {
@@ -183,6 +236,7 @@
         }
       });
     });
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
   </script>
 
 

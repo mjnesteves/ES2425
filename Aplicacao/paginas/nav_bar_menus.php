@@ -9,7 +9,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
+<<<<<<< HEAD
+                    <a class="nav-link" href="index.php">Inicio</a>
+=======
                     <a class="nav-link" href="pagina_inicial.php">Inicio</a>
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pagina_filmes.php">Filmes</a>
@@ -54,6 +58,23 @@
                     <div class="dropdown-header text-left text-info" style="font-size: 18px; font-weight: bold;">
                         Perfil:
                         <?php
+<<<<<<< HEAD
+                            if (isset($_SESSION['nome'])) {
+                                echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>
+                                <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
+                                <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
+                                <a class="dropdown-item" href="login.php">Ajuda</a>';
+                            }else{
+                                echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars("Visitante") . '</span>
+                                <a class="dropdown-item" href="login.php">LOGIN</a>
+                                 <a class="dropdown-item" href="login.php">Ajuda</a>';
+                                
+                            }
+                            ?>
+                    </div>
+                    
+                    
+=======
                         if (isset($_SESSION['nome'])) {
                             echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>';
                         } else {
@@ -66,6 +87,7 @@
                     <a class="dropdown-item" href="ajuda.html">Ajuda</a>
                     <a class="dropdown-item" href="definicoes.html">Definições</a>
                     <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
                 </div>
             </div>
 
