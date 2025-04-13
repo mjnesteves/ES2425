@@ -77,26 +77,61 @@
   </div>
 
 
-
+   
   <script>
+    // Script para processar os dados do formulário de forma assíncrona. O objetivo é não atualizar a página e apresentar  
+    // os resultados da consulta num modal 
+
+
+    //varável a ser utilizada para guardar as mensagens enviadas do processamento da página processa_login.php
     var mensagem;
 
     $("#formulario").on("submit", function(e) {
+
+      //Definir variável para armazenar os dados do formulário
       var serializeData = $('#formulario').serialize();
+      
+      //Impredir que a página seja atualizada
       e.preventDefault();
+
+      //Pedido feito via ajax
       $.ajax({
+
+        // Página de destino dos dados do formulário
         url: './processa_login.php',
+
+        //Tipo de request
         type: 'GET',
+
+        //Informação a ser enviada
         data: serializeData,
+
+        //Em caso da resposta do pedido ter sucesso
         success: function(data) {
+
+          //Fazer o parse da informação recebida da página processa_login.php para JSON
           mensagem = JSON.parse(data);
+
+          //Campo HTML onde a mensagem vai aparecer
           const screenToShow = document.getElementById('mensagem');
+
+          //Ciclo para percorrer o array com as mensagens enviadas da página processa_login.php
           mensagem.forEach(erro => {
+
+            //Criar um parágrafo para cada linha 
             const linha = document.createElement('p')
+            
+            //Conteúdo do parágrafo
             linha.innerText = erro
+
+            // O que vai aparecer no campo 
             screenToShow.append(linha);
           })
+          
+          // Chamada ao modal
           $("#login").modal('show');
+
+          //Se a mensagem for de insucesso, redireciona para a página login.php após 3 segundos, se for de sucesso redireciona para a página inicial
           if (mensagem[0] === 'Credenciais Invalidas!') {
             setTimeout(function() {
               window.location.href = 'login.php';
