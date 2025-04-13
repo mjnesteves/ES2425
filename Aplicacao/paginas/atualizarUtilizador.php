@@ -95,5 +95,9 @@ if (isset($_SESSION["idUtilizador"])) {
     echo json_encode($_SESSION['erros']);
 } else {
     session_destroy();
+<<<<<<< HEAD
     echo "<script>setTimeout(function(){ window.location.href = './index.php'; }, 0)</script>";
+=======
+    echo "<script>setTimeout(function(){ window.location.href = './pagina_inicial.php'; }, 0)</script>";
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
 }

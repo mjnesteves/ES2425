@@ -21,9 +21,12 @@ SET time_zone = "+00:00";
 -- Database: `codivideo`
 --
 
+<<<<<<< HEAD
 CREATE DATABASE IF NOT EXISTS `codivideo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `codivideo`;
 
+=======
+>>>>>>> 1173f7f13e2ecf70a98170a73cfe3c46b0f4800e
 -- --------------------------------------------------------
 
 --
