@@ -1,14 +1,19 @@
 <?php
 
+// Início da sessão
 session_start();
 
+
 if (isset($_SESSION["idUtilizador"])) {
+
+    // Obter o ID do utilizador e criar a varável de sessão respetiva
     $idUtilizador = $_SESSION["idUtilizador"];
     unset($_SESSION);
     $_SESSION["idUtilizador"] = $idUtilizador;
 
     include "../basedados/basedados.h";
 
+    //Obter os dados do formulário da página editar_utilizador.php
     $nome = $_GET["nome"];
     $email = $_GET["email"];
     $password = $_GET["password"];
@@ -16,6 +21,7 @@ if (isset($_SESSION["idUtilizador"])) {
     $morada = $_GET["morada"];
     $telefone = $_GET["telefone"];
 
+    //Consulta à base de dados 
     $sql = "SELECT * FROM utilizador WHERE idUtilizador = '$idUtilizador'";
     $res = mysqli_query($conn, $sql);
     $infoUtilizador = mysqli_fetch_array($res);
