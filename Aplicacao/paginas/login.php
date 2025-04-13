@@ -20,47 +20,6 @@
 
 <body>
 
-  <style>
-    body {
-      background-image: url('Imagens/background.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      color: white;
-    }
-
-    .container {
-      background-color: rgba(0, 0, 0, 0.95);
-      padding: 2rem;
-      border-radius: 1rem;
-      margin-top: 2rem;
-      max-width: 500px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input,
-    textarea {
-      margin-bottom: 1rem;
-    }
-
-    .btn-primary {
-      font-weight: bold;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-    }
-
-
-    .modal-header {
-      border-bottom: 0 none;
-    }
-
-    .modal-footer {
-      border-top: 0 none;
-    }
-  </style>
-  </head>
-
   <?php
   ob_start();
   session_start();
@@ -76,47 +35,26 @@
   }
   ?>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid d-flex justify-content-center align-items-center">
-      <!-- Logotipo à esquerda -->
-      <a class="navbar-brand" href="index.html">
-        <img src="imagens/Codivideo Logo2.png" alt="Codivideo" style="height: 50px;">
-      </a>
+<?php include "./nav_bar_menus.php"; ?>
 
-      <!-- Menu principal alinhado à esquerda -->
-      <div class="collapse navbar-collapse" id="navbarNav ">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Inicio</a>
-          </li>
-        </ul>
-      </div>
-
-
-  </nav>
-
-  <section class="vh-100 gradient-custom">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="container md-4 mt-0 md-4 pb-5">
-        <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-        <p class="text-white-50 mb-5">Introduza o seu email e password</p>
-        <form  method="GET" id="formulario">
-          <div data-mdb-input-init class="form-outline form-white mb-3">
-            <input type="email" class="form-control form-control-lg" name="email" required />
-            <label class="form-label">Email</label>
-          </div>
-          <div data-mdb-input-init class="form-outline form-white mb-3">
-            <input type="password" class="form-control form-control-lg" name="password" required />
-            <label class="form-label">Password</label>
-          </div>
-          <p class="small mb-5 pb-lg-2" data-toggle="modal" data-target="#recuperarPassword"><a class="text-white-50">Esqueceu-se da password?</a></p>
-          <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg px-5" type="submit" name="login">Login</button>
-        </form>
-        <p class="mt-3 mb-0">Não tem uma conta? <a href="criar_utilizador.php" class="text-white-50 fw-bold">Crie uma</a></p>
-        <div>
-
+  <section class="section-form-login-criar">
+    <div class="container-login-criar ">
+      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+      <p class="text-white-50 mb-5">Introduza o seu email e password</p>
+      <form method="GET" id="formulario">
+        <div data-mdb-input-init class="form-outline form-white mb-3">
+          <input type="email" class="form-control form-control-lg" name="email" required />
+          <label class="form-label">Email</label>
         </div>
-      </div>
+        <div data-mdb-input-init class="form-outline form-white mb-3">
+          <input type="password" class="form-control form-control-lg" name="password" required />
+          <label class="form-label">Password</label>
+        </div>
+        <p class="small mb-5 pb-lg-2" data-toggle="modal" data-target="#recuperarPassword"><a class="text-white-50">Esqueceu-se da password?</a></p>
+        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg px-5" type="submit" name="login">Login</button>
+      </form>
+      <p class="mt-3 mb-0">Não tem uma conta? <a href="criar_utilizador.php" class="text-white-50 fw-bold">Crie uma</a></p>
+    </div>
   </section>
 
 
@@ -125,13 +63,14 @@
   <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header mt-1">
+        <div class="modal-header mx-auto">
+          <h3 class="font-weight-bold text-secondary">Informação do Sistema</h3>
         </div>
-        <div class="modal-body">
-          <h3 class="font-weight-bold text-secondary text-center" id="mensagem"> </h3>
+        <div class="modal-body mx-auto">
+          <h3 class="font-weight-bold" id="mensagem"> </h3>
         </div>
-        <div class="modal-footer mx-auto">
-          <button id="botao" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">ok</button>
+        <div class="modal-header mx-auto">
+          <h3 class="font-weight-bold text-secondary">A redirecionar...</h3>
         </div>
       </div>
     </div>
@@ -156,30 +95,20 @@
             const linha = document.createElement('p')
             linha.innerText = erro
             screenToShow.append(linha);
-
           })
-
           $("#login").modal('show');
+          if (mensagem[0] === 'Credenciais Invalidas!') {
+            setTimeout(function() {
+              window.location.href = 'login.php';
+            }, 3000)
+          } else {
+            setTimeout(function() {
+              window.location.href = 'index.php';
+            }, 3000)
+          }
         },
         error: function(data) {
           alert("error");
-        }
-      });
-    });
-
-
-
-    $('#botao').on('click', function() {
-      $.ajax({
-        success: function(response) {
-          if (mensagem[0] === "Credenciais Invalidas!") {
-            location.reload();
-          }else{
-            window.location.href = 'index.php';
-          } 
-        },
-        error: function(xhr, status, error) {
-          alert('Something went wrong!');
         }
       });
     });

@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="pagina_inicial.php">Inicio</a>
+                    <a class="nav-link" href="index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pagina_filmes.php">Filmes</a>
@@ -54,18 +54,21 @@
                     <div class="dropdown-header text-left text-info" style="font-size: 18px; font-weight: bold;">
                         Perfil:
                         <?php
-                        if (isset($_SESSION['nome'])) {
-                            echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>';
-                        } else {
-                            echo '
-                                <a class="dropdown-item" href="./login.php">Login</a>';
-                        }
-                        ?>
+                            if (isset($_SESSION['nome'])) {
+                                echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>
+                                <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
+                                <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
+                                <a class="dropdown-item" href="login.php">Ajuda</a>';
+                            }else{
+                                echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars("Visitante") . '</span>
+                                <a class="dropdown-item" href="login.php">LOGIN</a>
+                                 <a class="dropdown-item" href="login.php">Ajuda</a>';
+                                
+                            }
+                            ?>
                     </div>
-                    <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
-                    <a class="dropdown-item" href="ajuda.html">Ajuda</a>
-                    <a class="dropdown-item" href="definicoes.html">Definições</a>
-                    <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
+                    
+                    
                 </div>
             </div>
 

@@ -6,7 +6,7 @@ include "../basedados/basedados.h";
 if (isset($_SESSION["idUtilizador"])) {
     $idUtilizador = $_SESSION["idUtilizador"];
     $nome = $_SESSION["nome"];
-    $tipoUtilizador= $_SESSION["tipoUtilizador"];
+    $tipoUtilizador = $_SESSION["tipoUtilizador"];
     unset($_SESSION);
     $_SESSION["idUtilizador"] = $idUtilizador;
     $_SESSION["nome"] = $nome;
@@ -31,7 +31,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
 <body>
 
-<?php include_once('nav_bar_menus.php'); ?>
+    <?php include_once('nav_bar_menus.php'); ?>
 
 
     <section class="espaço">
