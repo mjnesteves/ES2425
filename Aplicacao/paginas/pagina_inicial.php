@@ -162,13 +162,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
     </section>
 
-    <footer class="footer">
-        <div class="container text-center">
-            <p class="footer-title">Codivideo</p>
-            <p class="footer-text">© 2024-2025 Codivideo. Todos os direitos reservados.</p>
-            <p class="footer-text"><a href="https://www.codivideo.pt">www.codivideo.pt</a></p>
-        </div>
-    </footer>
+    <?php include "./footer.php"; ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

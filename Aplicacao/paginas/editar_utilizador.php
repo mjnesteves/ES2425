@@ -149,15 +149,8 @@
             });
         });
     </script>
-
-
-    <footer class="footer">
-        <div class="container-footer text-center align-items-center">
-            <p class="footer-title">Codivideo</p>
-            <p class="footer-text">© 2024-2025 Codivideo. Todos os direitos reservados.</p>
-            <p class="footer-text"><a href="https://www.codivideo.pt">www.codivideo.pt</a></p>
-        </div>
-    </footer>
+    
+  <?php include "./footer.php"; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -31,7 +31,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
 <body>
 
-    <?php include_once('nav_bar_menus.php'); ?>
+<?php include "./nav_bar_menus.php"; ?>
 
 
     <section class="espaço">
@@ -108,7 +108,7 @@ if (isset($_SESSION["idUtilizador"])) {
     </section>
 
 
-    <?php include_once('footer.php'); ?>
+    <?php include "./footer.php"; ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
