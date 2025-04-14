@@ -48,7 +48,7 @@ if (isset($_SESSION["idUtilizador"])) {
         $consultaEmail = mysqli_fetch_array($atualizarBD);
 
         //Se a consulta à base de dados devolver um resultado significa que já existe na base de dados 
-        if ($consultaEmail == 1) {
+        if ($consultaEmail != 0) {
             $atualizar = false;
 
             //Adiciona ao array a mensagem de erro

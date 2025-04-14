@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer fixed-bottom">
     <div class="container text-center">
         <p class="footer-title">Codivideo</p>
         <p class="footer-text">© 2024-2025 Codivideo. Todos os direitos reservados.</p>

@@ -23,7 +23,7 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
 	$row = mysqli_fetch_array($retval);
 
 	//Validação efetuada, estabelecer as variáveis de sessão para identificar o utilizador
-	if ($row ==1 ) {
+	if ($row != 0 ) {
 		if (strcmp($row["email"], $email) == 0 && strcmp($row["password"], md5($password)) == 0) {
 			$_SESSION["idUtilizador"] = $row["idUtilizador"];
 			$_SESSION["nome"] = $row["nome"];

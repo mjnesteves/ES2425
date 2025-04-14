@@ -25,7 +25,7 @@ if (! $consultaBD) {
 
 $infoBD = mysqli_fetch_array($consultaBD);
 
-if ($infoBD == 1) {
+if ($infoBD != 0) {
 
     //Adiciona ao array a mensagem de erro
     array_push($mensagens_erro, "Escolha outro email");

@@ -54,21 +54,20 @@
                     <div class="dropdown-header text-left text-info" style="font-size: 18px; font-weight: bold;">
                         Perfil:
                         <?php
-                            if (isset($_SESSION['nome'])) {
-                                echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>
+                        if (isset($_SESSION['nome'])) {
+                            echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>
                                 <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
                                 <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
                                 <a class="dropdown-item" href="login.php">Ajuda</a>';
-                            }else{
-                                echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars("Visitante") . '</span>
+                        } else {
+                            echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars("Visitante") . '</span>
                                 <a class="dropdown-item" href="login.php">LOGIN</a>
                                  <a class="dropdown-item" href="login.php">Ajuda</a>';
-                                
-                            }
-                            ?>
+                        }
+                        ?>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
 

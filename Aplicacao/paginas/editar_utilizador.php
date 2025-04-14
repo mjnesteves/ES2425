@@ -26,13 +26,18 @@
 
     if (isset($_SESSION["idUtilizador"])) {
         $idUtilizador = $_SESSION["idUtilizador"];
+        $nome = $_SESSION["nome"];
+        $tipoUtilizador = $_SESSION["tipoUtilizador"];
         unset($_SESSION);
         $_SESSION["idUtilizador"] = $idUtilizador;
+        $_SESSION["nome"] = $nome;
+        $_SESSION["tipoUtilizador"] = $tipoUtilizador;
 
         $sql = "SELECT * FROM utilizador WHERE idUtilizador = '$idUtilizador'";
         $res = mysqli_query($conn, $sql);
         $infoUtilizador = mysqli_fetch_array($res);
 
+        
         $tipoUtilizador = $infoUtilizador['tipoUtilizador'];
         $nome = $infoUtilizador['nome'];
         $email = $infoUtilizador['email'];
@@ -40,6 +45,9 @@
         $dataNascimento = $infoUtilizador['dataNascimento'];
         $morada = $infoUtilizador['morada'];
         $telefone = $infoUtilizador['telefone'];
+    }else{
+        echo"
+        <script> setTimeout(function () { window.location.href = 'pagina_inicial.php'; }, 0000)</script>";
     }
 
     ?>
@@ -89,14 +97,14 @@
     <div class="modal fade" id="mostra_modal" tabindex="-1" role="dialog" aria-labelledby="mostra_modal" aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header  mx-auto>
-                    <h3 class=" font-weight-bold text-secondary text-center" id=info>Informação</h3>
+                <div class="modal-header  mx-auto">
+                    <h3 class="font-weight-bold text-secondary text-center" id="info">Informação</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body mx-auto">
-                    <h3 class="font-weight-bold text-secondary text-center" id=editar_utilizador> </h3>
+                    <h3 class="font-weight-bold text-secondary text-center" id="editar_utilizador"> </h3>
                 </div>
                 <div class="modal-footer mx-auto">
                     <button id="ajaxButton" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">ok</button>

@@ -33,6 +33,7 @@
     $_SESSION["nome"] = $nome;
     $_SESSION["tipoUtilizador"] = $tipoUtilizador;
   }
+
   ?>
 
 <?php include "./nav_bar_menus.php"; ?>
@@ -138,7 +139,7 @@
             }, 3000)
           } else {
             setTimeout(function() {
-              window.location.href = 'pagina_inicial.php';
+              window.location.href = 'pagina_filmes.php';
             }, 3000)
           }
         },
