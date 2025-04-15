@@ -26,7 +26,7 @@ if (isset($_SESSION["idUtilizador"])) {
     $_SESSION["idUtilizador"] = $idUtilizador;
     $_SESSION["nome"] = $nome;
     $_SESSION["tipoUtilizador"] = $tipoUtilizador;
-
+}
 ?>
 
     <?php include "./nav_bar_menus.php"; ?>
