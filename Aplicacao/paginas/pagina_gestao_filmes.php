@@ -45,33 +45,6 @@ $resultado = mysqli_query($conn, $sql);
             color: white;
         }
 
-<<<<<<< HEAD
-        table,
-        th,
-        td {
-            color: white;
-        }
-
-        a.btn {
-            margin-bottom: 1rem;
-        }
-
-        .btn-primary {
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 0.6rem 1.2rem;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-        }
-
-        
-
-        .btn-warning,
-        .btn-danger {
-            color: white;
-        }
-
-
-=======
 
 
         table,
@@ -141,7 +114,6 @@ $resultado = mysqli_query($conn, $sql);
         .espaço {
             height: 80px;
         }
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
     </style>
 </head>
 

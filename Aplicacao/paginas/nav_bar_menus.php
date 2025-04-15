@@ -23,8 +23,6 @@
         <!-- Imagens à direita como botões -->
         <div class="d-flex align-items-center">
 
-<<<<<<< HEAD
-=======
             <!-- Menu 1 (ícone de lista) -->
             <div class="dropdown custom-dropdown mr-3">
                 <a href="#" id="menu1Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -45,7 +43,6 @@
                     <a class="dropdown-item" href="genero.php?genero=9">Romance</a>
                 </div>
             </div>
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
             <!-- Menu 2 (ícone de utilizador) -->
             <div class="dropdown custom-dropdown">
@@ -57,20 +54,6 @@
                     <div class="dropdown-header text-left text-info" style="font-size: 18px; font-weight: bold;">
                         Perfil:
                         <?php
-<<<<<<< HEAD
-                        if (isset($_SESSION['nome'])) {
-                            echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>';
-                        } else {
-                            echo '
-                                <a class="dropdown-item" href="./login.php">Login</a>';
-                        }
-                        ?>
-                    </div>
-                    <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
-                    <a class="dropdown-item" href="ajuda.html">Ajuda</a>
-                    <a class="dropdown-item" href="definicoes.html">Definições</a>
-                    <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
-=======
                             if (isset($_SESSION['nome'])) {
                                 echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>
                                 <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
@@ -86,7 +69,6 @@
                     </div>
                     
                     
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
                 </div>
             </div>
 

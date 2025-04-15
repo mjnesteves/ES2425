@@ -31,11 +31,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
 <body>
 
-<<<<<<< HEAD
-    <?php include_once('nav_bar_menus.php'); ?>
-=======
 <?php include "./nav_bar_menus.php"; ?>
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
 
     <section class="espaço">
@@ -47,54 +43,6 @@ if (isset($_SESSION["idUtilizador"])) {
     <section class="Filmes">
         <div class="container">
 
-<<<<<<< HEAD
-            <div class="row" style="margin-left: 10px;">
-            
-                    <?php include_once "escolhe_genero.php"; ?>
-            </div>
-
-
-                <h2><strong>Filmes</strong></h2>
-                <p>______________________________________</p>
-
-
-
-
-                <div class="row">
-                    <?php
-                    $query = "SELECT nomeFilme, imagem, idEstadoFilme FROM filme";
-
-                    $resultado = mysqli_query($conn, $query);
-
-                    if (!$resultado) {
-                        echo "<p>Erro ao obter filmes: " . mysqli_error($conn) . "</p>";
-                    } else {
-                        while ($filme = mysqli_fetch_assoc($resultado)) {
-
-                            $estado = intval($filme['idEstadoFilme']);
-                            $estadoTexto = '';
-                            $estadoCor = '';
-
-                            switch ($estado) {
-                                case 1:
-                                    $estadoTexto = 'Disponível';
-                                    $estadoCor = 'green';
-                                    break;
-                                case 2:
-                                    $estadoTexto = 'Reservado';
-                                    $estadoCor = 'orange';
-                                    break;
-                                case 3:
-                                    $estadoTexto = 'Alugado';
-                                    $estadoCor = 'red';
-                                    break;
-                                default:
-                                    $estadoTexto = 'Desconhecido';
-                                    $estadoCor = 'gray';
-                            }
-
-                            echo '<div class="col-lg-3 col-md-6 col-sm-12">
-=======
 
 
 
@@ -138,7 +86,6 @@ if (isset($_SESSION["idUtilizador"])) {
                         }
 
                         echo '<div class="col-lg-3 col-md-6 col-sm-12">
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
                 <div class="filmes">
                     <img src="imagens/' . htmlspecialchars($filme['imagem']) . '" alt="' . htmlspecialchars($filme['nomeFilme']) . '">
                     <p class="filmes-titulo"><strong>' . htmlspecialchars($filme['nomeFilme']) . '</strong></p>
@@ -149,18 +96,10 @@ if (isset($_SESSION["idUtilizador"])) {
                     <a href="#" class="btn btn-primary">Ver Filme</a>
                 </div>
               </div>';
-<<<<<<< HEAD
-                        }
-                    }
-
-                    ?>
-                </div>
-=======
                     }
                 }
 
                 ?>
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
             </div>
         </div>
     </section>
@@ -170,11 +109,7 @@ if (isset($_SESSION["idUtilizador"])) {
     </section>
 
 
-<<<<<<< HEAD
-    <?php include_once('footer.php'); ?>
-=======
     <?php include "./footer.php"; ?>
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>

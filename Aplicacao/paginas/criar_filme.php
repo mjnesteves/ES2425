@@ -22,15 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idEstadoFilme = $_POST['idEstadoFilme'];
     $descricao = $_POST['descricao'];
     $idGenero = $_POST['idGenero'];
-<<<<<<< HEAD
-  
-    // Calcular próximo idFilme com base no valor máximo atual
-    $sql_max = "SELECT MAX(idFilme) AS max_id FROM filme";
-    $result_max = mysqli_query($conn, $sql_max);
-    $row = mysqli_fetch_assoc($result_max);
-    $novo_id = $row['max_id'] + 1;
-=======
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
     // Verifica se foi feita submissão com imagem
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
@@ -48,11 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-<<<<<<< HEAD
-    $sql = "INSERT INTO filme (idFilme, nomeFilme, idEstadoFilme, descricao, idGenero, imagem)
-        VALUES ('$novo_id', '$nomeFilme', '$idEstadoFilme', '$descricao', '$idGenero', '$imagem')";
-=======
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
     mysqli_query($conn, $sql);
     header("Location: pagina_gestao_filmes.php");
@@ -67,27 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Criar Filme</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="style.css?v=1.0">
-
-</head>
-
-<body>
-    <section class="vh-100 gradient-custom ">
-        <div class="d-flex justify-content-center align-items-center h-100 ">
-            <div class="container-criar mb-0 md-5 mt-0 md-4 pb-5">
-                <h1 class="mb-4">Criar Novo Filme</h1>
-                <form method="POST" enctype="multipart/form-data">
-                    <label>Nome do Filme:</label>
-                    <input type="text" name="nomeFilme" class="form-control" required>
-
-                    <label>Estado do Filme:</label>
-                    <select name="idEstadoFilme" class="form-control" required>
-                        <?php foreach ($estados as $estado): ?>
-                            <option value="<?= $estado['idEstadoFilme'] ?>"><?= $estado['descricao'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-=======
     <link rel="stylesheet" href="style.css">
     <style>
         html,
@@ -140,22 +105,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="<?= $estado['idEstadoFilme'] ?>"><?= $estado['descricao'] ?></option>
                 <?php endforeach; ?>
             </select>
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
                     <label>Descrição:</label>
                     <textarea name="descricao" class="form-control" rows="4" required></textarea>
 
-<<<<<<< HEAD
-                    <label>Género:</label>
-                    <select name="idGenero" class="form-control" required>
-                        <?php foreach ($generos as $genero): ?>
-                            <option value="<?= $genero['idGenero'] ?>"><?= $genero['descricao'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-
-                    <label>Imagem (ficheiro):</label>
-                    <input type="file" name="imagem" class="form-control" accept="image/*" required>
-=======
             <label>Género:</label>
             <select name="idGenero" class="form-control" required>
                 <?php foreach ($generos as $genero): ?>
@@ -165,7 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label>Imagem (ficheiro):</label>
             <input type="file" name="imagem" class="form-control" accept="image/*" required>
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
                     <button type="submit" class="btn btn-primary">Criar</button>
                     <a href="pagina_gestao_filmes.php" class="btn btn-primary mt-3">Voltar</a>

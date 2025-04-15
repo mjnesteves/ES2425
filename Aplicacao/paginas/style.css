@@ -212,16 +212,9 @@ section {
 
 .banner-full {
   width: 100%;
-<<<<<<< HEAD
-  margin-top: 0;
-  /* Corrigido para encostar à navbar */
-  background-color: #000;
-  overflow: hidden;
-=======
   margin-top: 0; /* Corrigido para encostar à navbar */
   background-color: #000;
   overflow:visible;
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
   position: relative;
 }
 
@@ -361,11 +354,8 @@ section {
   background-color: #000;
   border-color: #000;
   color: #fff;
-<<<<<<< HEAD
-=======
         font-weight: bold;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 }
 
 .btn-primary:hover {
@@ -426,11 +416,7 @@ section {
     display: block;
   }
 
-<<<<<<< HEAD
-  .btn-login {
-=======
   .btn-login{
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid #000;
@@ -441,119 +427,6 @@ section {
     text-transform: uppercase;
     transition: all 0.3s ease;
   }
-<<<<<<< HEAD
-}
-
-
-/* ===================== LAYOUT GLOBAL ===================== */
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-}
-
-/* ===================== PÁGINA EDITAR UTILIZADOR ===================== */
-
-label {
-  font-weight: bold;
-}
-
-input,
-textarea {
-  margin-bottom: 1rem;
-}
-
-.container-editar {
-  background-color: rgba(0, 0, 0, 0.95);
-  padding: 2rem;
-  border-radius: 1rem;
-  margin-top: 2rem;
-  max-width: 600px;
-  width: 100%;
-}
-
-/* ===================== PÁGINA CRIAR UTILIZADOR ===================== */
-
-.container-criar {
-  background-color: rgba(0, 0, 0, 0.95);
-  padding: 2rem;
-  border-radius: 1rem;
-  margin-top: 2rem;
-  max-width: 600px;
-  width: 100%;
-}
-
-/* ===================== PÁGINA CRIAR FILME ===================== */
-
-.container-cfilme {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
-  border-radius: 1rem;
-  margin-top: 2rem;
-  max-width: 600px;
-}
-
-/* ===================== PÁGINA GESTÃO FILMES ===================== */
-
-body {
-  background-image: url('Imagens/background.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-}
-
-table,
-th,
-td {
-  color: white;
-}
-
-a.btn {
-  margin-bottom: 1rem;
-}
-
-.btn-primary {
-  font-weight: bold;
-  font-size: 1.1rem;
-  padding: 0.6rem 1.2rem;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-}
-
-.btn-warning,
-.btn-danger {
-  color: white;
-}
-
-/* ===================== yyyyyyyy ===================== */
-
-
-
-/* ===================== xxxxxxxx ===================== */
-
-
-/* ===================== PÁGINA CRIAR UTILIZADOR e LOGIN ===================== */
-
-.section-form-login-criar{
-  padding:auto;
-
-}
-
-.container-login-criar {
-  margin:auto;
-  margin-top: 3rem;
-  background-color: rgba(0, 0, 0, 0.95);
-  padding: 2rem;
-  border-radius: 1rem;
-  max-width: 500px;
-}
-=======
 }
 
 
@@ -610,4 +483,3 @@ textarea {
 
 
 
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
