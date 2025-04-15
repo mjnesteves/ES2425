@@ -23,26 +23,6 @@
         <!-- Imagens à direita como botões -->
         <div class="d-flex align-items-center">
 
-            <!-- Menu 1 (ícone de lista) -->
-            <div class="dropdown custom-dropdown mr-3">
-                <a href="#" id="menu1Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <img src="imagens/list.svg" alt="Menu 1" class="menu-icon">
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dark-dropdown" aria-labelledby="menu1Dropdown">
-                    <div class="dropdown-header text-center text-info" style="font-size: 18px; font-weight: bold;">
-                        Géneros:</div>
-                    <a class="dropdown-item" href="genero.php?genero=1">Ação</a>
-                    <a class="dropdown-item" href="genero.php?genero=2">Aventura</a>
-                    <a class="dropdown-item" href="genero.php?genero=3">Comédia</a>
-                    <a class="dropdown-item" href="genero.php?genero=4">Documentário</a>
-                    <a class="dropdown-item" href="genero.php?genero=5">Desenhos Animados</a>
-                    <a class="dropdown-item" href="genero.php?genero=6">Drama</a>
-                    <a class="dropdown-item" href="genero.php?genero=7">Ficção Científica</a>
-                    <a class="dropdown-item" href="genero.php?genero=8">Terror</a>
-                    <a class="dropdown-item" href="genero.php?genero=9">Romance</a>
-                </div>
-            </div>
 
             <!-- Menu 2 (ícone de utilizador) -->
             <div class="dropdown custom-dropdown">
@@ -54,21 +34,18 @@
                     <div class="dropdown-header text-left text-info" style="font-size: 18px; font-weight: bold;">
                         Perfil:
                         <?php
-                            if (isset($_SESSION['nome'])) {
-                                echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>
-                                <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
-                                <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
-                                <a class="dropdown-item" href="login.php">Ajuda</a>';
-                            }else{
-                                echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars("Visitante") . '</span>
-                                <a class="dropdown-item" href="login.php">LOGIN</a>
-                                 <a class="dropdown-item" href="login.php">Ajuda</a>';
-                                
-                            }
-                            ?>
+                        if (isset($_SESSION['nome'])) {
+                            echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>';
+                        } else {
+                            echo '
+                                <a class="dropdown-item" href="./login.php">Login</a>';
+                        }
+                        ?>
                     </div>
-                    
-                    
+                    <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
+                    <a class="dropdown-item" href="ajuda.html">Ajuda</a>
+                    <a class="dropdown-item" href="definicoes.html">Definições</a>
+                    <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
                 </div>
             </div>
 

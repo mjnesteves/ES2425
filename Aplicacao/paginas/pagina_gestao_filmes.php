@@ -33,7 +33,7 @@ $resultado = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-utjQz5wVK8DTG0sA/DQUkP3StkOr9+tjWsrLjzmqMbS3ydI8RGmohqMyicAAlJfVL8Y2noX0k9HvlZ6MV2AZ4A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -44,8 +44,6 @@ $resultado = mysqli_query($conn, $sql);
             background-repeat: no-repeat;
             color: white;
         }
-
-
 
         table,
         th,
@@ -64,56 +62,14 @@ $resultado = mysqli_query($conn, $sql);
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
         }
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-        }
+        
 
         .btn-warning,
         .btn-danger {
             color: white;
         }
 
-        .navbar {
-            background-color: #000;
-            padding: 0.5rem 1rem;
-        }
 
-        .navbar .navbar-nav .nav-link {
-            color: white;
-            font-weight: 500;
-            margin-right: 1rem;
-        }
-
-        .navbar .navbar-nav .nav-link:hover {
-            color: #ccc;
-        }
-
-        .navbar-brand img {
-            height: 50px;
-        }
-
-        .menu-icon {
-            width: 30px;
-            height: 30px;
-        }
-
-        .dropdown-menu.dark-dropdown {
-            background-color: #222;
-            color: white;
-        }
-
-        .dropdown-menu.dark-dropdown a.dropdown-item {
-            color: white;
-        }
-
-        .dropdown-menu.dark-dropdown a.dropdown-item:hover {
-            background-color: #444;
-        }
-
-        .espaço {
-            height: 80px;
-        }
     </style>
 </head>
 

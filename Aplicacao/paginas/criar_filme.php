@@ -22,6 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idEstadoFilme = $_POST['idEstadoFilme'];
     $descricao = $_POST['descricao'];
     $idGenero = $_POST['idGenero'];
+  
+    // Calcular próximo idFilme com base no valor máximo atual
+    $sql_max = "SELECT MAX(idFilme) AS max_id FROM filme";
+    $result_max = mysqli_query($conn, $sql_max);
+    $row = mysqli_fetch_assoc($result_max);
+    $novo_id = $row['max_id'] + 1;
 
     // Verifica se foi feita submissão com imagem
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
@@ -39,9 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    $sql = "INSERT INTO filme (idFilme, nomeFilme, idEstadoFilme, descricao, idGenero, imagem)
+        VALUES ('$novo_id', '$nomeFilme', '$idEstadoFilme', '$descricao', '$idGenero', '$imagem')";
 
-    $sql = "INSERT INTO filme (nomeFilme, idEstadoFilme, descricao, idGenero, imagem)
-            VALUES ('$nomeFilme', '$idEstadoFilme', '$descricao', '$idGenero', '$imagem')";
     mysqli_query($conn, $sql);
     header("Location: pagina_gestao_filmes.php");
 }
@@ -55,76 +61,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Criar Filme</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        html,
-        body {
-            background-image: url('Imagens/background.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: white;
-        }
+    <link rel="stylesheet" href="style.css?v=1.0">
 
-        .container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 2rem;
-            border-radius: 1rem;
-            margin-top: 2rem;
-            max-width: 600px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input,
-        textarea,
-        select {
-            margin-bottom: 1rem;
-        }
-
-        .btn-primary {
-            font-weight: bold;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-        }
-
-        main {
-            flex: 1;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="mb-4">Criar Novo Filme</h1>
-        <form method="POST" enctype="multipart/form-data">
-            <label>Nome do Filme:</label>
-            <input type="text" name="nomeFilme" class="form-control" required>
+    <section class="vh-100 gradient-custom ">
+        <div class="d-flex justify-content-center align-items-center h-100 ">
+            <div class="container-criar mb-0 md-5 mt-0 md-4 pb-5">
+                <h1 class="mb-4">Criar Novo Filme</h1>
+                <form method="POST" enctype="multipart/form-data">
+                    <label>Nome do Filme:</label>
+                    <input type="text" name="nomeFilme" class="form-control" required>
 
-            <label>Estado do Filme:</label>
-            <select name="idEstadoFilme" class="form-control" required>
-                <?php foreach ($estados as $estado): ?>
-                    <option value="<?= $estado['idEstadoFilme'] ?>"><?= $estado['descricao'] ?></option>
-                <?php endforeach; ?>
-            </select>
+                    <label>Estado do Filme:</label>
+                    <select name="idEstadoFilme" class="form-control" required>
+                        <?php foreach ($estados as $estado): ?>
+                            <option value="<?= $estado['idEstadoFilme'] ?>"><?= $estado['descricao'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
 
-            <label>Descrição:</label>
-            <textarea name="descricao" class="form-control" rows="4" required></textarea>
+                    <label>Descrição:</label>
+                    <textarea name="descricao" class="form-control" rows="4" required></textarea>
 
-            <label>Género:</label>
-            <select name="idGenero" class="form-control" required>
-                <?php foreach ($generos as $genero): ?>
-                    <option value="<?= $genero['idGenero'] ?>"><?= $genero['descricao'] ?></option>
-                <?php endforeach; ?>
-            </select>
+                    <label>Género:</label>
+                    <select name="idGenero" class="form-control" required>
+                        <?php foreach ($generos as $genero): ?>
+                            <option value="<?= $genero['idGenero'] ?>"><?= $genero['descricao'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
 
-            <label>Imagem (ficheiro):</label>
-            <input type="file" name="imagem" class="form-control" accept="image/*" required>
+                    <label>Imagem (ficheiro):</label>
+                    <input type="file" name="imagem" class="form-control" accept="image/*" required>
 
-            <button type="submit" class="btn btn-primary mt-3">Guardar</button>
-            <a href="pagina_gestao_filmes.php" class="btn btn-primary mt-3">Voltar</a>
-        </form>
-    </div>
+                    <button type="submit" class="btn btn-primary">Criar</button>
+                    <a href="pagina_gestao_filmes.php" class="btn btn-primary mt-3">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
