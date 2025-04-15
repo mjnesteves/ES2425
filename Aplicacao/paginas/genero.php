@@ -59,6 +59,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
     <section class="Filmes">
         <div class="container">
+<<<<<<< HEAD
 
         <div class="row" style="margin-left: 10px;">
             
@@ -93,6 +94,36 @@ if (isset($_SESSION["idUtilizador"])) {
                                 $estadoCor = 'gray';
                         }
 
+=======
+            <h2><strong>Filmes de <?php echo htmlspecialchars($nomeGenero); ?></strong></h2>
+            <p>______________________________________</p>
+            <div class="row">
+                <?php
+                if ($resultado && mysqli_num_rows($resultado) > 0) {
+                    while ($filme = mysqli_fetch_assoc($resultado)) {
+                        $estado = intval($filme['idEstadoFilme']);
+                        $estadoTexto = '';
+                        $estadoCor = '';
+
+                        switch ($estado) {
+                            case 1:
+                                $estadoTexto = 'Disponível';
+                                $estadoCor = 'green';
+                                break;
+                            case 2:
+                                $estadoTexto = 'Reservado';
+                                $estadoCor = 'orange';
+                                break;
+                            case 3:
+                                $estadoTexto = 'Alugado';
+                                $estadoCor = 'red';
+                                break;
+                            default:
+                                $estadoTexto = 'Desconhecido';
+                                $estadoCor = 'gray';
+                        }
+
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
                         echo '<div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="filmes">
                     <img src="imagens/' . htmlspecialchars($filme['imagem']) . '" alt="' . htmlspecialchars($filme['nomeFilme']) . '">
@@ -115,6 +146,14 @@ if (isset($_SESSION["idUtilizador"])) {
 
 
     <section class="espaço">
+<<<<<<< HEAD
+=======
+
+    </section>
+
+
+    <?php include_once('footer.php'); ?>
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
     </section>
 

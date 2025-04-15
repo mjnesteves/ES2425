@@ -26,6 +26,11 @@ function getDescricaoUtilizador($tipoUtilizador)
     }
 }
 
+<<<<<<< HEAD
+=======
+
+// Mostra a descrição do tipo a ser utilizado na edição dos dados do utilizador
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 function listaTipoUtilizadorAdmin($tipoUtilizador)
 {
 

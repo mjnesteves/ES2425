@@ -63,15 +63,22 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+<<<<<<< HEAD
   position: relative;
+=======
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 }
 
 /* Ícones de menu no topo (brancos e reativos ao hover) */
 .menu-icon {
   height: 35px;
   width: auto;
+<<<<<<< HEAD
   filter: brightness(0) invert(1);
   /* deixa os ícones brancos */
+=======
+  filter: brightness(0) invert(1); /* deixa os ícones brancos */
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
   cursor: pointer;
   transition: filter 0.3s ease;
 }
@@ -205,10 +212,16 @@ section {
 
 .banner-full {
   width: 100%;
+<<<<<<< HEAD
   margin-top: 0;
   /* Corrigido para encostar à navbar */
   background-color: #000;
   overflow: hidden;
+=======
+  margin-top: 0; /* Corrigido para encostar à navbar */
+  background-color: #000;
+  overflow:visible;
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
   position: relative;
 }
 
@@ -348,6 +361,11 @@ section {
   background-color: #000;
   border-color: #000;
   color: #fff;
+<<<<<<< HEAD
+=======
+        font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 }
 
 .btn-primary:hover {
@@ -408,7 +426,11 @@ section {
     display: block;
   }
 
+<<<<<<< HEAD
   .btn-login {
+=======
+  .btn-login{
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid #000;
@@ -419,6 +441,7 @@ section {
     text-transform: uppercase;
     transition: all 0.3s ease;
   }
+<<<<<<< HEAD
 }
 
 
@@ -530,3 +553,61 @@ a.btn {
   border-radius: 1rem;
   max-width: 500px;
 }
+=======
+}
+
+
+/* ===================== LAYOUT GLOBAL ===================== */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* ===================== PÁGINA EDITAR UTILIZADOR ===================== */
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  margin-bottom: 1rem;
+}
+
+.container-editar {
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  max-width: 500px;
+}
+
+/* ===================== PÁGINA CRIAR UTILIZADOR e LOGIN ===================== */
+
+.section-form-login-criar{
+  padding:auto;
+
+}
+
+.container-login-criar {
+  margin:auto;
+  margin-top: 3rem;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 500px;
+}
+
+
+
+
+
+
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd

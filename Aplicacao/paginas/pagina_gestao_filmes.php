@@ -45,6 +45,7 @@ $resultado = mysqli_query($conn, $sql);
             color: white;
         }
 
+<<<<<<< HEAD
         table,
         th,
         td {
@@ -70,6 +71,77 @@ $resultado = mysqli_query($conn, $sql);
         }
 
 
+=======
+
+
+        table,
+        th,
+        td {
+            color: white;
+        }
+
+        a.btn {
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        }
+
+        .btn-warning,
+        .btn-danger {
+            color: white;
+        }
+
+        .navbar {
+            background-color: #000;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: white;
+            font-weight: 500;
+            margin-right: 1rem;
+        }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: #ccc;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .menu-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .dropdown-menu.dark-dropdown {
+            background-color: #222;
+            color: white;
+        }
+
+        .dropdown-menu.dark-dropdown a.dropdown-item {
+            color: white;
+        }
+
+        .dropdown-menu.dark-dropdown a.dropdown-item:hover {
+            background-color: #444;
+        }
+
+        .espaço {
+            height: 80px;
+        }
+>>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
     </style>
 </head>
 
