@@ -26,7 +26,6 @@ if (isset($_SESSION["idUtilizador"])) {
     $_SESSION["idUtilizador"] = $idUtilizador;
     $_SESSION["nome"] = $nome;
     $_SESSION["tipoUtilizador"] = $tipoUtilizador;
-}
 
 ?>
 
