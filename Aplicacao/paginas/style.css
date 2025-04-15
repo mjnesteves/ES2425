@@ -63,22 +63,13 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-<<<<<<< HEAD
-  position: relative;
-=======
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 }
 
 /* Ícones de menu no topo (brancos e reativos ao hover) */
 .menu-icon {
   height: 35px;
   width: auto;
-<<<<<<< HEAD
-  filter: brightness(0) invert(1);
-  /* deixa os ícones brancos */
-=======
   filter: brightness(0) invert(1); /* deixa os ícones brancos */
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
   cursor: pointer;
   transition: filter 0.3s ease;
 }
