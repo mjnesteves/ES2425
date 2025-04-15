@@ -28,11 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = $_POST['descricao'];
     $idGenero = $_POST['idGenero'];
 
-<<<<<<< HEAD
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
-=======
-    if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0){
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
         $nomeTemporario = $_FILES['imagem']['tmp_name'];
         $imagem = basename($_FILES['imagem']['name']);
         $caminhoDestino = "Imagens/" . $imagem;
@@ -40,11 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Move o ficheiro para a pasta /Imagens
         if (move_uploaded_file($nomeTemporario, $caminhoDestino)) {
             // Upload feito com sucesso
-<<<<<<< HEAD
         } else {
-=======
-        }else {
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
             echo "Erro ao mover o ficheiro!";
             exit;
         }
@@ -82,28 +74,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<<<<<<< HEAD
 
     <section class="vh-100 gradient-custom ">
         <div class="d-flex justify-content-center align-items-center h-100 mt-5">
             <div class="container-editar">
-=======
-    <div class="container">
-        <h1 class="mb-4">Editar Filme</h1>
-        <form method="POST" enctype="multipart/form-data">
-            <label>Nome do Filme:</label>
-            <input type="text" name="nomeFilme" class="form-control" value="<?= $filme['nomeFilme'] ?>" required>
-
-            <label>Estado do Filme:</label>
-            <select name="idEstadoFilme" class="form-control" required>
-                <?php foreach ($estados as $estado): ?>
-                    <option value="<?= $estado['idEstadoFilme'] ?>"><?= $estado['descricao'] ?></option>
-                <?php endforeach; ?>
-            </select>
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
 
-<<<<<<< HEAD
                 <h1 class="mb-4">Editar Filme</h1>
                 <form method="POST" enctype="multipart/form-data">
                     <label>Nome do Filme:</label>
@@ -111,18 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         required>
 
                     <label>Estado do Filme:</label>
-=======
-            <label>Género:</label>
-            <select name="idGenero" class="form-control" required>
-                <?php foreach ($generos as $genero): ?>
-                    <option value="<?= $genero['idGenero'] ?>"><?= $genero['descricao'] ?></option>
-                <?php endforeach; ?>
-            </select>
-
-            <label>Imagem (ficheiro):</label>
-            <input type="file" name="imagem" class="form-control" accept="image/*">
-            <input type="hidden" name="imagemAntiga" value="<?= $filme['imagem'] ?>">
->>>>>>> 9efe70ac67c08fd5bafa53bb3e05e5ff8f42bafd
 
                     <select name="idEstadoFilme" class="form-control" required>
                         <?php foreach ($estados as $estado): ?>
