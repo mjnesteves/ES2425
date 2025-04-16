@@ -52,18 +52,73 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dark-dropdown" aria-labelledby="menu2Dropdown">
                     <div class="dropdown-header text-left text-info" style="font-size: 18px; font-weight: bold;">
-                        Perfil:
+
                         <?php
-                        if (isset($_SESSION['nome'])) {
-                            echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span>
-                                <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
-                                <a class="dropdown-item" href="logout.php">Terminar Sessão</a>
-                                <a class="dropdown-item" href="login.php">Ajuda</a>';
+                        include "./Constantes_Utilizadores.php";
+                        include "./funcoesAuxiliares.php";
+
+                        if (isset($idUtilizador)) {
+
+                            $ficheiroQueChamou = basename($_SERVER['REQUEST_URI']);
+                            echo '
+                            Nome:
+                            <span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars($nome) . '</span></br>
+                            Perfil:
+                            <span style="margin-left: 10px; color: #00a8e1;">' . getDescricaoUtilizador($tipoUtilizador) . '</span>
+                            <p></p>';
+
+
+                            if ($tipoUtilizador == ADMINISTRADOR) {
+                               
+                                echo ' <script> console.log("' .basename($_SERVER['REQUEST_URI']). '")</script>';
+
+                                if ($ficheiroQueChamou=="editar_utilizador.php") {
+                                    echo '
+                                        <a class="dropdown-item" href="./editar_utilizador.php">Gestão de Utilizadores</a>
+                                        <a class="dropdown-item" href="./gestao_reservas.php">Gestão de Reservas</a>
+                                        <a class="dropdown-item" href="./editar_utilizador.php">Gestão de Filmes</a>
+                                        <a class="dropdown-item" href="logout.php">Terminar Sessão</a>';
+                                } else if ($ficheiroQueChamou== 'gestao_utilizadores.php') {
+                                    echo '
+                                        <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
+                                        <a class="dropdown-item" href="./gestao_reservas.php">Gestão de Reservas</a>
+                                        <a class="dropdown-item" href="./pagina_gestao_filmes.php">Gestão de Filmes</a>
+                                        <a class="dropdown-item" href="logout.php">Terminar Sessão</a>';
+                                }else if ($ficheiroQueChamou== 'gestao_reservas.php') {
+                                echo '
+                                        <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
+                                        <a class="dropdown-item" href="./editar_utilizador.php">Gestão de Utilizadores</a>
+                                        <a class="dropdown-item" href="./editar_utilizador.php">Gestão de Reservas</a>
+                                        <a class="dropdown-item" href="logout.php">Terminar Sessão</a>';
+                                }
+                            
+                            } else if ($tipoUtilizador == EMPREGADO) {
+
+                                echo '
+                                    <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
+                                    <a class="dropdown-item" href="./editar_utilizador.php">Gestão de Reservas</a>
+                                    <a class="dropdown-item" href="./editar_utilizador.php">Gestão de Filmes</a>
+                                    <a class="dropdown-item" href="login.php">Ajuda</a>
+                                    <a class="dropdown-item" href="logout.php">Terminar Sessão</a>';
+                            } else if ($tipoUtilizador == CLIENTE) {
+                                echo '
+                                    <a class="dropdown-item" href="./editar_utilizador.php">Atualizar Dados Pessoais</a>
+                                    <a class="dropdown-item" href="./editar_utilizador.php">Gestão de Reservas</a>
+                                    <a class="dropdown-item" href="login.php">Ajuda</a>
+                                    <a class="dropdown-item" href="logout.php">Terminar Sessão</a>';
+                            } else {
+                            }
                         } else {
-                            echo '<span style="margin-left: 10px; color: #00a8e1;">' . htmlspecialchars("Visitante") . '</span>
-                                <a class="dropdown-item" href="login.php">LOGIN</a>
-                                 <a class="dropdown-item" href="login.php">Ajuda</a>';
+                            echo '
+                            Perfil:
+                            <span style="margin-left: 10px; color: #00a8e1;">Visitante</span>
+                            <p></p>
+                            <a class="dropdown-item" href="login.php">Login</a>
+                            <a class="dropdown-item" href="criar_utilizador.php">Criar Conta</a>
+                            <a class="dropdown-item" href="login.php">Ajuda</a>';
                         }
+
+
                         ?>
                     </div>
 

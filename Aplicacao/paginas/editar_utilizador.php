@@ -20,9 +20,6 @@
     session_start();
 
     include "../basedados/basedados.h";
-    include './Constantes_Utilizadores.php';
-    include "./funcoesAuxiliares.php";
-
 
     if (isset($_SESSION["idUtilizador"])) {
         $idUtilizador = $_SESSION["idUtilizador"];

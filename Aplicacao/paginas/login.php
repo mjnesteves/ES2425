@@ -21,7 +21,7 @@
 <body>
 
   <?php
-  ob_start();
+  //ob_start();
   session_start();
 
   if (isset($_SESSION["idUtilizador"])) {
@@ -32,11 +32,17 @@
     $_SESSION["idUtilizador"] = $idUtilizador;
     $_SESSION["nome"] = $nome;
     $_SESSION["tipoUtilizador"] = $tipoUtilizador;
+    $_SESSION["caminho"] = substr(dirname(__DIR__), strlen($_SERVER['DOCUMENT_ROOT']));;
+    $caminho= $_SESSION["caminho"];
   }
+
 
   ?>
 
-<?php include "./nav_bar_menus.php"; ?>
+  <?php
+  include "./nav_bar_menus.php";
+  
+?>
 
   <section class="section-form-login-criar">
     <div class="container-login-criar ">
