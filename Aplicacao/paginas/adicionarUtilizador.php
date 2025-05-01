@@ -5,9 +5,20 @@ session_start();
 include "../basedados/basedados.h";
 include "./Constantes_Utilizadores.php";
 
-$criadoPorAdmin = isset($_SESSION['idTipoUtilizador']) && $_SESSION['idTipoUtilizador'] == ADMINISTRADOR;
+
+if (isset($_SESSION["idUtilizador"])) {
+    $idUtilizador = $_SESSION["idUtilizador"];
+    $nome = $_SESSION["nome"];
+    $tipoUtilizador = $_SESSION["tipoUtilizador"];
+    unset($_SESSION);
+    $_SESSION["idUtilizador"] = $idUtilizador;
+    $_SESSION["nome"] = $nome;
+    $_SESSION["tipoUtilizador"] = $tipoUtilizador;
+}
+
 
 //Dados do formulário
+
 $nome = $_GET["nome"];
 $email = $_GET["email"];
 $password = $_GET["password"];
@@ -35,15 +46,36 @@ if ($infoBD != 0) {
 } else {
 
     //Após a validação do email é adicionado o utilizador
-    $sql = "INSERT INTO `utilizador` (`nome`,`email`, `password`, `tipoUtilizador`,`dataNascimento`, `morada`,`telefone`)
-    VALUES ('" . $nome . "','" . $email . "','" . md5($password) . "', '3','" . $dataNascimento . "','" . $morada . "','" . $telefone . "');";
-    $consultaBD = mysqli_query($conn, $sql);
-    if (! $consultaBD) {
-        die('Could not get data: ' . mysqli_error($conn)); // se não funcionar dá erro
+    
+    if (isset($tipoUtilizador) && ($tipoUtilizador = ADMINISTRADOR)) {
+        
+        //ADMINISTRADOR
+        $tipo = $_GET["tipo"];
+
+        $sql = "INSERT INTO `utilizador` (`nome`,`email`, `password`, `tipoUtilizador`,`dataNascimento`, `morada`,`telefone`)
+        VALUES ('" . $nome . "','" . $email . "','" . md5($password) . "','".$tipo. "','" . $dataNascimento . "','" . $morada . "','" . $telefone . "');";
+        $consultaBD = mysqli_query($conn, $sql);
+        if (! $consultaBD) {
+            die('Could not get data: ' . mysqli_error($conn)); // se não funcionar dá erro
+        }
+         //Adiciona ao array a mensagem de erro
+        array_push($mensagens_erro, "Utilizador Adicionado!");
+    } else {
+
+        //UTILIZADOR
+        $sql = "INSERT INTO `utilizador` (`nome`,`email`, `password`, `tipoUtilizador`,`dataNascimento`, `morada`,`telefone`)
+        VALUES ('" . $nome . "','" . $email . "','" . md5($password) . "', '3','" . $dataNascimento . "','" . $morada . "','" . $telefone . "');";
+        $consultaBD = mysqli_query($conn, $sql);
+        if (! $consultaBD) {
+            die('Could not get data: ' . mysqli_error($conn)); // se não funcionar dá erro
+        }
+
+          //Adiciona ao array a mensagem de erro
+        array_push($mensagens_erro, "Conta criada. Faça login!");
     }
 
-    //Adiciona ao array a mensagem de erro
-    array_push($mensagens_erro, "Conta criada. Faça login!");
+
+    
     mysqli_close($conn);
 }
 

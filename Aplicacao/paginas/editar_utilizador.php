@@ -19,18 +19,18 @@
 
     include "./nav_bar_menus.php"; 
 
+
+
     if (isset($_SESSION["idUtilizador"])) {
         //ID do utilizador a atualizar na BD
         $utilizador = $_GET["utilizador"];
-        $_SESSION["utilizador"]= $utilizador;
-
+        
         $sql = "SELECT * FROM utilizador WHERE idUtilizador = '$utilizador'";
         $res = mysqli_query($conn, $sql);
         $infoUtilizador = mysqli_fetch_array($res);
 
-
+        $tipo = $infoUtilizador['tipoUtilizador'];
         $id_a_atualizar =$infoUtilizador['idUtilizador'];
-        $tipoUtilizador = $infoUtilizador['tipoUtilizador'];
         $nome = $infoUtilizador['nome'];
         $email = $infoUtilizador['email'];
         $password = $infoUtilizador['password'];
@@ -52,7 +52,15 @@
             <h1 class="mb-4">Atualizar informacao <?php echo ($nome) ?></h1>
             <form method="GET" id="formulario" action="./atualizarUtilzador.php">
 
-                <input type='text' name='id_a_atualizar' value=<?php echo "'$id_a_atualizar'" ?> hidden/>
+            <?php
+                if (isset($tipoUtilizador) && $tipoUtilizador== ADMINISTRADOR) {
+                    listaTipoUtilizadorAdminEditar($tipo);
+                    
+                }
+
+                ?>
+
+                <input type='number' name='id_a_atualizar' value=<?php echo "'$id_a_atualizar'" ?> hidden/>
 
                 <label>Nome</label>
                 <input type="text" name="nome" class="form-control" required value=<?php echo "'$nome'" ?>>
@@ -135,7 +143,9 @@
                 success: function(response) {
                     if (mensagem[0] === 'Dados atualizados com sucesso') {
                         window.location.href = 'pagina_inicial.php';
-                    } else {
+                    } else if (mensagem[0] === 'Dados atualizados, Administrador' ) {
+                        window.location.href = 'gestao_utilizadores.php';
+                    }else{
                         location.reload()
                     }
                 },

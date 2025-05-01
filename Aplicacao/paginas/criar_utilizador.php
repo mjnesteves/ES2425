@@ -21,9 +21,11 @@
             <h1 class="mb-4">Novo Utilizador</h1>
             <form method="GET" id="formulario" action="./adicionarUtilizador.php">
                 <?php
-                if (isset($tipoUtilizador) && $tipoUtilizador == 1) {
-                    listaTipoUtilizadorAdmin($tipoUtilizador);
+                if (isset($tipoUtilizador)) {
+                    listaTipoUtilizadorAdminCriar($tipoUtilizador);
+                    
                 }
+
                 ?>
 
                 <label>Nome</label>
@@ -107,7 +109,9 @@
                 success: function (response) {
                     if (mensagem[0] === 'Conta criada. Faça login!') {
                         window.location.href = 'login.php';
-                    } else {
+                    } else if (mensagem[0] === 'Utilizador Adicionado!'){
+                        window.location.href = 'gestao_utilizadores.php';
+                    }else{
                         location.reload()
                     }
                 },

@@ -8,14 +8,16 @@ if (isset($_SESSION["idUtilizador"])) {
 
     //ID do utilizador que tem sessão iniciada
     $idUtilizador = $_SESSION["idUtilizador"];
+    $tipoUtilizador = $_SESSION["tipoUtilizador"];
     unset($_SESSION);
     $_SESSION["idUtilizador"] = $idUtilizador;
-
+    $_SESSION["tipoUtilizador"] = $tipoUtilizador;
     include "../basedados/basedados.h";
+    include "./Constantes_Utilizadores.php";
 
     //Obter os dados do formulário da página editar_utilizador.php
 
-    $id_a_atualizar= $_GET["id_a_atualizar"];
+    $id_a_atualizar = $_GET["id_a_atualizar"];
     $nome = $_GET["nome"];
     $email = $_GET["email"];
     $password = $_GET["password"];
@@ -33,6 +35,20 @@ if (isset($_SESSION["idUtilizador"])) {
     //Array para guardar os erros gerados durante a validação dos dados
     $mensagens_erro = array();
 
+
+    //Atualizar o tipo de Utilizador. Apenas válido para o Administrador
+    if ($tipoUtilizador == ADMINISTRADOR) {
+        $tipo = $_GET["tipo"];
+        if (strcmp($tipo, $infoUtilizador['tipoUtilizador']) != 0) {
+            $atualizarTipo = "UPDATE utilizador SET tipoUtilizador ='" . $tipo . "' WHERE idUtilizador='$id_a_atualizar'";
+            $atualizarBD = mysqli_query($conn, $atualizarTipo);
+
+            if (!$atualizarBD) {
+                die('Could not get data: ' . mysqli_error($conn));
+            }
+        }
+    }
+
     //Validação do nome
     if (strcmp($nome, $infoUtilizador['nome']) != 0) {
         $atualizarNome = "UPDATE utilizador SET nome ='" . $nome . "' WHERE idUtilizador='$id_a_atualizar'";
@@ -42,11 +58,9 @@ if (isset($_SESSION["idUtilizador"])) {
             die('Could not get data: ' . mysqli_error($conn));
         }
 
-        if(isset($_SESSION['nome'])){
-            $_SESSION["nome"] = $infoUtilizador['nome'];  
+        if (isset($_SESSION['nome'])) {
+            $_SESSION["nome"] = $infoUtilizador['nome'];
         }
-      
-       
     }
     // Validação do email
     if (strcmp($email, $infoUtilizador['email']) != 0) {
@@ -119,9 +133,15 @@ if (isset($_SESSION["idUtilizador"])) {
     }
 
     //Se a validação estiver correta, a mensagem de sucesso é adicionada ao array
-    if ($atualizar) {
+    if ($atualizar ) {
 
-        array_push($mensagens_erro, "Dados atualizados com sucesso");
+        if($tipoUtilizador==ADMINISTRADOR){
+            array_push($mensagens_erro, "Dados atualizados, Administrador");
+        }else{
+            array_push($mensagens_erro, "Dados atualizados com sucesso");
+        }
+
+        
     }
 
     //Estabelecer a variável de sessão e defini-la com o array dos erros
