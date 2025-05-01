@@ -3,6 +3,17 @@
 
 //calculo de idade
 
+function calculoIdade($dataNascimento){
+
+    $dataAtual = new DateTime((date("Y-m-d")));
+    $dataNascimento =  new DateTime($dataNascimento);
+
+    $aux = $dataAtual->diff($dataNascimento);
+
+    $idade = $aux->y;
+    return $idade;
+}
+
 
 function getDescricaoUtilizador($tipoUtilizador)
 {

@@ -16,7 +16,7 @@
 <body>
   <main>
   <?php
-    include_once('nav_bar_menus.php');
+    include "./nav_bar_menus.php";
 
 
     if ($tipoUtilizador != ADMINISTRADOR ) {
@@ -44,6 +44,7 @@
               <th>Tipo</th>
               <th>Nome</th>
               <th>Email</th>
+              <th>Idade</th>
               <th>Validar</th>
               <th>Editar</th>
               <th>Invalidar</th>
@@ -57,6 +58,7 @@
                     <td>" . getDescricaoUtilizador($linha["tipoUtilizador"]) . "</td>
                     <td>" . $linha["nome"] . "</td>
                     <td>" . $linha["email"] . "</td>
+                    <td>" . calculoIdade($linha["dataNascimento"]) . "</td>
 
                     ";
               //VALIDAR						
