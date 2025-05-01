@@ -6,7 +6,7 @@ session_start();
 
 if (isset($_SESSION["idUtilizador"])) {
 
-    // Obter o ID do utilizador e criar a varável de sessão respetiva
+    //ID do utilizador que tem sessão iniciada
     $idUtilizador = $_SESSION["idUtilizador"];
     unset($_SESSION);
     $_SESSION["idUtilizador"] = $idUtilizador;
@@ -14,6 +14,8 @@ if (isset($_SESSION["idUtilizador"])) {
     include "../basedados/basedados.h";
 
     //Obter os dados do formulário da página editar_utilizador.php
+
+    $id_a_atualizar= $_GET["id_a_atualizar"];
     $nome = $_GET["nome"];
     $email = $_GET["email"];
     $password = $_GET["password"];
@@ -22,7 +24,7 @@ if (isset($_SESSION["idUtilizador"])) {
     $telefone = $_GET["telefone"];
 
     //Consulta à base de dados 
-    $sql = "SELECT * FROM utilizador WHERE idUtilizador = '$idUtilizador'";
+    $sql = "SELECT * FROM utilizador WHERE idUtilizador = '$id_a_atualizar'";
     $res = mysqli_query($conn, $sql);
     $infoUtilizador = mysqli_fetch_array($res);
 
@@ -33,12 +35,18 @@ if (isset($_SESSION["idUtilizador"])) {
 
     //Validação do nome
     if (strcmp($nome, $infoUtilizador['nome']) != 0) {
-        $atualizarNome = "UPDATE utilizador SET nome ='" . $nome . "' WHERE idUtilizador='$idUtilizador'";
+        $atualizarNome = "UPDATE utilizador SET nome ='" . $nome . "' WHERE idUtilizador='$id_a_atualizar'";
         $atualizarBD = mysqli_query($conn, $atualizarNome);
 
         if (!$atualizarBD) {
             die('Could not get data: ' . mysqli_error($conn));
         }
+
+        if(isset($_SESSION['nome'])){
+            $_SESSION["nome"] = $infoUtilizador['nome'];  
+        }
+      
+       
     }
     // Validação do email
     if (strcmp($email, $infoUtilizador['email']) != 0) {
@@ -54,7 +62,7 @@ if (isset($_SESSION["idUtilizador"])) {
             //Adiciona ao array a mensagem de erro
             array_push($mensagens_erro, "Escolha outro email");
         } else {
-            $atualizarEmail = "UPDATE utilizador SET email ='" . $email . "' WHERE idUtilizador='$idUtilizador'";
+            $atualizarEmail = "UPDATE utilizador SET email ='" . $email . "' WHERE idUtilizador='$id_a_atualizar'";
             $atualizarBD = mysqli_query($conn, $atualizarEmail);
             if (!$atualizarBD) {
                 die('Could not get data: ' . mysqli_error($conn));
@@ -64,7 +72,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
     //Comparação entre a password inserida e a existente, se o resultado da comparação for diferente, atualiza na BD a nova password
     if (strcmp($password, "") != 0) {
-        $atualizarPassword = "UPDATE utilizador SET password ='" . md5($password) . "' WHERE idUtilizador='$idUtilizador'";
+        $atualizarPassword = "UPDATE utilizador SET password ='" . md5($password) . "' WHERE idUtilizador='$id_a_atualizar'";
         $atualizarBD = mysqli_query($conn, $atualizarPassword);
 
         if (!$atualizarBD) {
@@ -74,7 +82,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
     //Comparação entre a password na Base de dados e a nova password, se for diferente, atualiza
     if (strcmp($dataNascimento, $infoUtilizador['dataNascimento']) != 0) {
-        $atualizarDataNascimento = "UPDATE utilizador SET dataNascimento ='" . $dataNascimento . "' WHERE idUtilizador='$idUtilizador'";
+        $atualizarDataNascimento = "UPDATE utilizador SET dataNascimento ='" . $dataNascimento . "' WHERE idUtilizador='$id_a_atualizar'";
         $atualizarBD = mysqli_query($conn, $atualizarDataNascimento);
 
         if (!$atualizarBD) {
@@ -84,7 +92,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
     //Comparação entre a morada na Base de dados e a inserida, se for diferente, atualiza.
     if (strcmp($morada, $infoUtilizador['morada']) != 0) {
-        $atualizarMorada = "UPDATE utilizador SET morada ='" . $morada . "' WHERE idUtilizador='$idUtilizador'";
+        $atualizarMorada = "UPDATE utilizador SET morada ='" . $morada . "' WHERE idUtilizador='$id_a_atualizar'";
         $atualizarBD = mysqli_query($conn, $atualizarMorada);
 
         if (!$atualizarBD) {
@@ -97,7 +105,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
         // Se o número for fora dos parâmetros, não aceita
         if ($telefone < 999999999 && $telefone > 111111111) {
-            $atualizarTelefone = "UPDATE utilizador SET telefone ='" . $telefone . "' WHERE idUtilizador='$idUtilizador'";
+            $atualizarTelefone = "UPDATE utilizador SET telefone ='" . $telefone . "' WHERE idUtilizador='$id_a_atualizar'";
             $atualizarBD = mysqli_query($conn, $atualizarTelefone);
 
             if (!$atualizarBD) {
@@ -112,6 +120,7 @@ if (isset($_SESSION["idUtilizador"])) {
 
     //Se a validação estiver correta, a mensagem de sucesso é adicionada ao array
     if ($atualizar) {
+
         array_push($mensagens_erro, "Dados atualizados com sucesso");
     }
 

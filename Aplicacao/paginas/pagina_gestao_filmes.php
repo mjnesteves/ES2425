@@ -1,31 +1,3 @@
-<?php
-session_start();
-include "../basedados/basedados.h";
-
-if (isset($_SESSION["idUtilizador"])) {
-    $idUtilizador = $_SESSION["idUtilizador"];
-    $nome = $_SESSION["nome"];
-    $tipoUtilizador = $_SESSION["tipoUtilizador"];
-    unset($_SESSION);
-    $_SESSION["idUtilizador"] = $idUtilizador;
-    $_SESSION["nome"] = $nome;
-    $_SESSION["tipoUtilizador"] = $tipoUtilizador;
-}
-
-// Buscar os filmes da base de dados
-$sql = "SELECT f.idFilme, f.nomeFilme, f.descricao, f.imagem, 
-               e.descricao AS estadoDescricao, 
-               g.descricao AS generoDescricao
-        FROM filme f
-        JOIN estadofilme e ON f.idEstadoFilme = e.idEstadoFilme
-        JOIN generofilme g ON f.idGenero = g.idGenero
-        ORDER BY f.idFilme";
-
-
-
-$resultado = mysqli_query($conn, $sql);
-?>
-
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -33,141 +5,86 @@ $resultado = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-utjQz5wVK8DTG0sA/DQUkP3StkOr9+tjWsrLjzmqMbS3ydI8RGmohqMyicAAlJfVL8Y2noX0k9HvlZ6MV2AZ4A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body {
-            background-image: url('Imagens/background.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: white;
-        }
 
-
-
-        table,
-        th,
-        td {
-            color: white;
-        }
-
-        a.btn {
-            margin-bottom: 1rem;
-        }
-
-        .btn-primary {
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 0.6rem 1.2rem;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-        }
-
-        .btn-warning,
-        .btn-danger {
-            color: white;
-        }
-
-        .navbar {
-            background-color: #000;
-            padding: 0.5rem 1rem;
-        }
-
-        .navbar .navbar-nav .nav-link {
-            color: white;
-            font-weight: 500;
-            margin-right: 1rem;
-        }
-
-        .navbar .navbar-nav .nav-link:hover {
-            color: #ccc;
-        }
-
-        .navbar-brand img {
-            height: 50px;
-        }
-
-        .menu-icon {
-            width: 30px;
-            height: 30px;
-        }
-
-        .dropdown-menu.dark-dropdown {
-            background-color: #222;
-            color: white;
-        }
-
-        .dropdown-menu.dark-dropdown a.dropdown-item {
-            color: white;
-        }
-
-        .dropdown-menu.dark-dropdown a.dropdown-item:hover {
-            background-color: #444;
-        }
-
-        .espaço {
-            height: 80px;
-        }
-    </style>
 </head>
 
 <body>
 
-    <?php include_once('nav_bar_menus.php'); ?>
+    <?php
+    include_once('nav_bar_menus.php');
 
-    <section class="espaço">
 
+    if ($tipoUtilizador != ADMINISTRADOR && $tipoUtilizador != EMPREGADO) {
+        header("Location: pagina_inicial.php");
+        exit();
+    }
+
+    // Buscar os filmes da base de dados
+    $sql = "SELECT f.idFilme, f.nomeFilme, f.descricao, f.imagem, 
+               e.descricao AS estadoDescricao, 
+               g.descricao AS generoDescricao
+        FROM filme f
+        JOIN estadofilme e ON f.idEstadoFilme = e.idEstadoFilme
+        JOIN generofilme g ON f.idGenero = g.idGenero
+        ORDER BY f.idFilme";
+
+    $resultado = mysqli_query($conn, $sql);
+    ?>
+
+    <section class="espaço"></section>
+
+    <section class="Filmes">
+        <div class="container">
+            <h1 class="mb-4">Gestão de Filmes</h1>
+            <p>______________________________________</p>
+
+            <a href="criar_filme.php" class="btn btn-primary">Criar Novo Filme</a>
+
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome Filme</th>
+                        <th>Estado Filme</th>
+                        <th>Descrição</th>
+                        <th>Genero</th>
+                        <th>Imagem</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($filme = mysqli_fetch_assoc($resultado)) { ?>
+                        <tr>
+                            <td><?php echo $filme['idFilme']; ?></td>
+                            <td><?php echo $filme['nomeFilme']; ?></td>
+                            <td><?php echo $filme['estadoDescricao']; ?></td>
+                            <td><?php echo $filme['descricao']; ?></td>
+                            <td><?php echo $filme['generoDescricao']; ?></td>
+                            <td>
+                                <img src="Imagens/<?php echo $filme['imagem']; ?>" alt="Imagem do Filme"
+                                    style="width: 100px; height: auto; border-radius: 8px;">
+                            </td>
+                            <td>
+                                <a href="editar_filme.php?id=<?= $filme['idFilme'] ?>" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-edit"></i> Editar
+                                </a>
+                                <button class="btn btn-sm btn-danger" onclick="abrirModal(<?= $filme['idFilme'] ?>)">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <div class="container">
-        <h1 class="mb-4">Gestão de Filmes</h1>
-
-        <a href="criar_filme.php" class="btn btn-primary">Criar Novo Filme</a>
-
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nome Filme</th>
-                    <th>Estado Filme</th>
-                    <th>Descrição</th>
-                    <th>Genero</th>
-                    <th>Imagem</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($filme = mysqli_fetch_assoc($resultado)) { ?>
-                    <tr>
-                        <td><?php echo $filme['idFilme']; ?></td>
-                        <td><?php echo $filme['nomeFilme']; ?></td>
-                        <td><?php echo $filme['estadoDescricao']; ?></td>
-                        <td><?php echo $filme['descricao']; ?></td>
-                        <td><?php echo $filme['generoDescricao']; ?></td>
-                        <td>
-                            <img src="Imagens/<?php echo $filme['imagem']; ?>" alt="Imagem do Filme"
-                                style="width: 100px; height: auto; border-radius: 8px;">
-                        </td>
-                        <td>
-                            <a href="editar_filme.php?id=<?= $filme['idFilme'] ?>" class="btn btn-sm btn-warning">
-                                <i class="fas fa-edit"></i> Editar
-                            </a>
-                            <button class="btn btn-sm btn-danger" onclick="abrirModal(<?= $filme['idFilme'] ?>)">
-                                <i class="fas fa-trash-alt"></i> Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
-
+    <section class="espaço"></section>
+    
     <?php include_once('footer.php'); ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

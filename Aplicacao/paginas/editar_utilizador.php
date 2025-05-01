@@ -8,33 +8,28 @@
     <title>Editar Utilizador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
 </head>
 
 <body>
 
-    <?php
+   <?php
 
-    session_start();
-
-    include "../basedados/basedados.h";
+    include "./nav_bar_menus.php"; 
 
     if (isset($_SESSION["idUtilizador"])) {
-        $idUtilizador = $_SESSION["idUtilizador"];
-        $nome = $_SESSION["nome"];
-        $tipoUtilizador = $_SESSION["tipoUtilizador"];
-        unset($_SESSION);
-        $_SESSION["idUtilizador"] = $idUtilizador;
-        $_SESSION["nome"] = $nome;
-        $_SESSION["tipoUtilizador"] = $tipoUtilizador;
+        //ID do utilizador a atualizar na BD
+        $utilizador = $_GET["utilizador"];
+        $_SESSION["utilizador"]= $utilizador;
 
-        $sql = "SELECT * FROM utilizador WHERE idUtilizador = '$idUtilizador'";
+        $sql = "SELECT * FROM utilizador WHERE idUtilizador = '$utilizador'";
         $res = mysqli_query($conn, $sql);
         $infoUtilizador = mysqli_fetch_array($res);
 
-        
+
+        $id_a_atualizar =$infoUtilizador['idUtilizador'];
         $tipoUtilizador = $infoUtilizador['tipoUtilizador'];
         $nome = $infoUtilizador['nome'];
         $email = $infoUtilizador['email'];
@@ -42,6 +37,8 @@
         $dataNascimento = $infoUtilizador['dataNascimento'];
         $morada = $infoUtilizador['morada'];
         $telefone = $infoUtilizador['telefone'];
+
+
     }else{
         echo"
         <script> setTimeout(function () { window.location.href = 'pagina_inicial.php'; }, 0000)</script>";
@@ -49,18 +46,13 @@
 
     ?>
 
-    <?php include "./nav_bar_menus.php"; ?>
 
     <section class="section-form-login-criar">
         <div class="container-login-criar">
-            <h1 class="mb-4">Atualizar informacao de <?php echo ($nome) ?></h1>
+            <h1 class="mb-4">Atualizar informacao <?php echo ($nome) ?></h1>
             <form method="GET" id="formulario" action="./atualizarUtilzador.php">
 
-                <?php
-                if ($tipoUtilizador == ADMINISTRADOR) {
-                    listaTipoUtilizadorAdmin($tipoUtilizador);
-                }
-                ?>
+                <input type='text' name='id_a_atualizar' value=<?php echo "'$id_a_atualizar'" ?> hidden/>
 
                 <label>Nome</label>
                 <input type="text" name="nome" class="form-control" required value=<?php echo "'$nome'" ?>>
@@ -80,10 +72,10 @@
                 <label>Contacto</label>
                 <input type="tel" name="telefone" class="form-control" value=<?php echo "'$telefone'" ?>>
 
-                <button type="submit" class="btn btn-primary mt-3">Atualizar</button>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
 
 
-                <a href="pagina_inicial.php" class="btn btn-primary mt-3">Voltar</a>
+                <a href="javascript:history.back()" class="btn btn-primary mt-3">Voltar</a>
             </form>
 
         </div>
@@ -97,7 +89,6 @@
                 <div class="modal-header  mx-auto">
                     <h3 class="font-weight-bold text-secondary text-center" id="info">Informação</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body mx-auto">
@@ -154,8 +145,10 @@
             });
         });
     </script>
-    
-  <?php include "./footer.php"; ?>
+
+
+
+    <?php include "./footer.php"; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

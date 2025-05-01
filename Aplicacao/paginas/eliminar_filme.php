@@ -1,4 +1,5 @@
 <?php
+
 include "../basedados/basedados.h";
 
 $id = $_GET['id'];

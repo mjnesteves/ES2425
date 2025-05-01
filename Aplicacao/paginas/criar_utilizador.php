@@ -7,32 +7,11 @@
     <title>Criar Utilizador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
-
-
-    <?php
-    session_start();
-
-
-    include "../basedados/basedados.h";
-    include "./Constantes_Utilizadores.php";
-    include "./funcoesAuxiliares.php";
-
-
-    if (isset($_SESSION["idUtilizador"])) {
-        $idUtilizador = $_SESSION["idUtilizador"];
-        $nome = $_SESSION["nome"];
-        $tipoUtilizador = $_SESSION["tipoUtilizador"];
-        unset($_SESSION);
-        $_SESSION["idUtilizador"] = $idUtilizador;
-        $_SESSION["nome"] = $nome;
-        $_SESSION["tipoUtilizador"] = $tipoUtilizador;
-    }
-    ?>
 
     <?php include "./nav_bar_menus.php"; ?>
 
@@ -65,15 +44,16 @@
                 <label>Contacto</label>
                 <input type="tel" name="telefone" class="form-control" required>
 
-                <button type="submit" class="btn btn-primary mt-3">Registar</button>
+                <button type="submit" class="btn btn-primary">Registar</button>
 
 
-                <a href="pagina_inicial.php" class="btn btn-primary mt-3">Voltar</a>
+                <a href="javascript:history.back()" class="btn btn-primary mt-3">Voltar</a>
             </form>
         </div>
     </section>
     <!-- Modal -->
-    <div class="modal fade" id="mostra_modal" tabindex="-1" role="dialog" aria-labelledby="mostra_modal" aria-hidden="false">
+    <div class="modal fade" id="mostra_modal" tabindex="-1" role="dialog" aria-labelledby="mostra_modal"
+        aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header mt-1">
@@ -97,14 +77,14 @@
     <script>
         var mensagem;
 
-        $("#formulario").on("submit", function(e) {
+        $("#formulario").on("submit", function (e) {
             var serializeData = $('#formulario').serialize();
             e.preventDefault();
             $.ajax({
                 url: './adicionarUtilizador.php',
                 type: 'GET',
                 data: serializeData,
-                success: function(data) {
+                success: function (data) {
                     mensagem = JSON.parse(data);
                     const screenToShow = document.getElementById('criar_utilizador')
                     mensagem.forEach(erro => {
@@ -114,30 +94,30 @@
                     })
                     $("#mostra_modal").modal('show');
                 },
-                error: function(data) {
+                error: function (data) {
                     alert("error");
                 }
             });
         });
 
 
-        $('#ajaxButton').on('click', function() {
+        $('#ajaxButton').on('click', function () {
             // Send Ajax request
             $.ajax({
-                success: function(response) {
+                success: function (response) {
                     if (mensagem[0] === 'Conta criada. Faça login!') {
                         window.location.href = 'login.php';
                     } else {
                         location.reload()
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     alert('Something went wrong!');
                 }
             });
         });
     </script>
-  <?php include "./footer.php"; ?>
+    <?php include "./footer.php"; ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

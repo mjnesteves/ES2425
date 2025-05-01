@@ -5,6 +5,8 @@ session_start();
 include "../basedados/basedados.h";
 include "./Constantes_Utilizadores.php";
 
+$criadoPorAdmin = isset($_SESSION['idTipoUtilizador']) && $_SESSION['idTipoUtilizador'] == ADMINISTRADOR;
+
 //Dados do formulário
 $nome = $_GET["nome"];
 $email = $_GET["email"];
