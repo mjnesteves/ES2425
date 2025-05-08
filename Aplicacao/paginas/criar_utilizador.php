@@ -28,28 +28,34 @@
 
                 ?>
 
-                <label>Nome</label>
-                <input type="text" name="nome" class="form-control" required>
+                <label>Nome </label><text style="color:red;">*</text>
+                <input type="text" name="nome" class="form-control" required="">
 
-                <label>Email</label>
+                <label>Email </label><text style="color:red;">*</text>
                 <input type="email" name="email" class="form-control" required>
 
-                <label>Password</label>
+                <label>Password </label><text style="color:red;">*</text>
                 <input type="password" name="password" class="form-control" required>
 
-                <label>Data de Nascimento</label>
+                <label>Data de Nascimento </label><text style="color:red;">*</text>
                 <input type="date" name="dataNascimento" class="form-control" required>
 
-                <label>Morada</label>
+                <label>Morada </label><text style="color:red;">*</text>
                 <input type="text" name="morada" class="form-control" required>
 
-                <label>Contacto</label>
-                <input type="tel" name="telefone" class="form-control" required>
+                <label>Contacto </label><text style="color:red;">*</text>
+
+                <input type="number" name="telefone" class="form-control" required>
+
+
+                <p style="color:red;">* Campos Obrigatórios</p>
 
                 <button type="submit" class="btn btn-primary">Registar</button>
 
 
                 <a href="javascript:history.back()" class="btn btn-primary mt-3">Voltar</a>
+
+
             </form>
         </div>
     </section>

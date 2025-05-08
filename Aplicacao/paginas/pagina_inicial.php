@@ -40,6 +40,11 @@
 
     <!-- Conteúdo Principal -->
     <main>
+
+        <?php
+        if (!isset($idUtilizador)){
+            ?>
+        
         <!-- Trailers -->
         <div class="carousel-item active">
             <section class="banner-full">
@@ -92,6 +97,9 @@
                 </div>
             </section>
 
+            <?php
+        }
+        ?>
 
             <section class="Em Breve">
                 <div class="container">
