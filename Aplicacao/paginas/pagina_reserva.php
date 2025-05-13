@@ -32,6 +32,11 @@
     $resultFilme = mysqli_stmt_get_result($stmtFilme);
     $filme = mysqli_fetch_assoc($resultFilme);
 
+
+    $idade = $_SESSION["idade"];
+    $classificacao = $filme['classificacao'];
+
+
     echo("<script>console.log('PHP: " . $filme['classificacao'] . "');</script>");
     
 
@@ -95,21 +100,23 @@
                         <!-- Classificacao do filme -->
 
                              <p style="color: #ccc; font-size: 16px; max-height: 150px; overflow-y: auto;">
-                            <?php imagem($filme['classificacao']) ?>
-                        </p>
+                            <?php imagem($classificacao) ?>
+                            </p>
 
+                        <?php 
+                            if(isset($idUtilizador) &&
+                            ($idade<18 && ($classificacao == 0) || 
+                            ($idade>=18 && ($classificacao ==1 || $classificacao==0)))){
+                            
+                        ?>
 
-                        <!-- Estado do filme -->
+                                               <!-- Estado do filme -->
                         <div
                             style="background-color: white; border-radius: 8px; padding: 6px 10px; margin: 10px 0; display: inline-flex; align-items: center;">
                             <span
                                 style="width: 12px; height: 12px; background-color: <?= $estadoCor ?>; border-radius: 50%; display: inline-block; margin-right: 8px;"></span>
                             <span style="color: black;"><?= $estadoTexto ?></span>
                         </div>
-
-                        <?php if(isset($idUtilizador) && ($idade)>=18 ){
-                        
-                        ?>
                         
 
                         <form action="confirmar_reserva.php" method="post" class="form-box-reserva">
@@ -140,6 +147,7 @@
                 </div>
 
                 <?php
+
                         }
                 ?>
                 <div class="container" style="margin-top: 50px;">
