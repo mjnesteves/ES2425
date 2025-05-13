@@ -9,10 +9,12 @@ if (isset($_SESSION["idUtilizador"])) {
     $idUtilizador = $_SESSION["idUtilizador"];
     $nome = $_SESSION["nome"];
     $tipoUtilizador = $_SESSION["tipoUtilizador"];
+    $idade = $_SESSION["idade"];
     unset($_SESSION);
     $_SESSION["idUtilizador"] = $idUtilizador;
     $_SESSION["nome"] = $nome;
     $_SESSION["tipoUtilizador"] = $tipoUtilizador;
+    $_SESSION["idade"] = $idade;
 }
 ?>
 

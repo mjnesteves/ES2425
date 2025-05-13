@@ -3,6 +3,7 @@ session_start();
 
 include "../basedados/basedados.h";
 include './Constantes_Utilizadores.php';
+include "./funcoesAuxiliares.php";
 
 if (isset($_GET["email"]) && isset($_GET["password"])) {
 
@@ -36,6 +37,7 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
 				$_SESSION["idUtilizador"] = $linha["idUtilizador"];
 				$_SESSION["nome"] = $linha["nome"];
 				$_SESSION["tipoUtilizador"] = $linha["tipoUtilizador"];
+				$_SESSION["idade"] = calculoIdade($linha["dataNascimento"]);
 
 				//Array para guardar os erros gerados durante a validação dos dados
 				array_push($mensagem, " Bem vindo, " . $_SESSION["nome"] . "");

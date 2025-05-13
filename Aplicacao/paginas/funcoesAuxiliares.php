@@ -81,6 +81,29 @@ function listaTipoUtilizadorAdminEditar($tipo)
 
 
 
+function classificacao (){
+
+   echo
+            
+                "<select name='classificacao' type='number' class='form-control mb-3'>" .
+                "<option value='classificacao' selected disabled hidden>Selecionar</option>" .
+                "<option value=0>" .  "Menos de 18 anos" . "</option>" .
+                "<option value=1>" .  "Igual ou maior de 18 anos" . "</option></select>"; 
+            
+}
+
+function imagem($classificacao){
+
+        switch ($classificacao) {
+        case 1:
+            echo"<img src='./Imagens/Icons/mais18.jpg' width=80 height=80>";
+        break;
+        default:
+     
+    }
+}
+
+
 
 
 ?>

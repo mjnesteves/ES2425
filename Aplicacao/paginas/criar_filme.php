@@ -35,6 +35,7 @@
         $idEstadoFilme = $_POST['idEstadoFilme'];
         $descricao = $_POST['descricao'];
         $idGenero = $_POST['idGenero'];
+        $classificacao = $_POST['classificacao'];
 
         // Calcular próximo idFilme com base no valor máximo atual
         $sql_max = "SELECT MAX(idFilme) AS max_id FROM filme";
@@ -58,8 +59,8 @@
             exit;
         }
 
-        $sql = "INSERT INTO filme (idFilme, nomeFilme, idEstadoFilme, descricao, idGenero, imagem)
-        VALUES ('$novo_id', '$nomeFilme', '$idEstadoFilme', '$descricao', '$idGenero', '$imagem')";
+        $sql = "INSERT INTO filme (idFilme, nomeFilme, idEstadoFilme, descricao, idGenero, imagem, classificacao)
+        VALUES ('$novo_id', '$nomeFilme', '$idEstadoFilme', '$descricao', '$idGenero', '$imagem', '$classificacao')";
 
         mysqli_query($conn, $sql);
         header("Location: pagina_gestao_filmes.php");
@@ -90,6 +91,10 @@
                             <option value="<?= $genero['idGenero'] ?>"><?= $genero['descricao'] ?></option>
                         <?php endforeach; ?>
                     </select>
+                    <label>Classificacao</label>
+                     <?php classificacao ()
+                     ?>
+
 
                     <label>Imagem (ficheiro):</label>
                     <input type="file" name="imagem" class="form-control" accept="image/*" required>

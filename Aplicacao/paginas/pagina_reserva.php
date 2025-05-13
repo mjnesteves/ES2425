@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-utjQz5wVK8DTG0sA/DQUkP3StkOr9+tjWsrLjzmqMbS3ydI8RGmohqMyicAAlJfVL8Y2noX0k9HvlZ6MV2AZ4A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
@@ -27,12 +25,17 @@
     $idFilme = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
     // Obter dados do filme
-    $sqlFilme = "SELECT nomeFilme, imagem, descricao, idEstadoFilme FROM filme WHERE idFilme = ?";
+    $sqlFilme = "SELECT nomeFilme, imagem, descricao, idEstadoFilme, classificacao FROM filme WHERE idFilme = ?";
     $stmtFilme = mysqli_prepare($conn, $sqlFilme);
     mysqli_stmt_bind_param($stmtFilme, "i", $idFilme);
     mysqli_stmt_execute($stmtFilme);
     $resultFilme = mysqli_stmt_get_result($stmtFilme);
     $filme = mysqli_fetch_assoc($resultFilme);
+
+    echo("<script>console.log('PHP: " . $filme['classificacao'] . "');</script>");
+    
+
+
 
     $estado = intval($filme['idEstadoFilme']);
     $estadoTexto = '';
@@ -89,6 +92,13 @@
                             <?= nl2br(htmlspecialchars($filme['descricao'])) ?>
                         </p>
 
+                        <!-- Classificacao do filme -->
+
+                             <p style="color: #ccc; font-size: 16px; max-height: 150px; overflow-y: auto;">
+                            <?php imagem($filme['classificacao']) ?>
+                        </p>
+
+
                         <!-- Estado do filme -->
                         <div
                             style="background-color: white; border-radius: 8px; padding: 6px 10px; margin: 10px 0; display: inline-flex; align-items: center;">
@@ -97,6 +107,10 @@
                             <span style="color: black;"><?= $estadoTexto ?></span>
                         </div>
 
+                        <?php if(isset($idUtilizador) && ($idade)>=18 ){
+                        
+                        ?>
+                        
 
                         <form action="confirmar_reserva.php" method="post" class="form-box-reserva">
                             <input type="hidden" name="idFilme" value="<?= $idFilme ?>">
@@ -124,6 +138,10 @@
                         </form>
                     </div>
                 </div>
+
+                <?php
+                        }
+                ?>
                 <div class="container" style="margin-top: 50px;">
                     <a href="javascript:history.back()" class="btn btn-primary">Voltar</a>
                 </div>
