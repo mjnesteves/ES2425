@@ -321,6 +321,10 @@ section {
   color: #ffffff;
 }
 
+.footer-spacer {
+  height: calc(100vh - 200px) !important; /* altura mínima do ecrã - conteúdo médio estimado */
+}
+
 
 /* ===================== BOTÕES GERAIS ===================== */
 
@@ -426,12 +430,13 @@ section {
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
 }
 
 main {
-  flex: 1;
+  flex-grow: 1;
 }
 
 /* ===================== PÁGINA EDITAR UTILIZADOR ===================== */
@@ -459,7 +464,7 @@ textarea {
   padding:auto;
 
 }
-
+/* Este container está a ser usado também para a página editar-filme */
 .container-login-criar {
   margin:auto;
   margin-top: 3rem;
@@ -469,8 +474,177 @@ textarea {
   max-width: 500px;
 }
 
+.cantos_tabela {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ===================== PÁGINA CRIAR FILME ===================== */
+
+.container-cfilme {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  max-width: 600px;
+}
+
+/* ===================== PÁGINA GESTÃO FILMES ===================== */
+
+table,
+th,
+td {
+  color: white;
+}
+
+a.btn {
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.btn-warning,
+.btn-danger {
+  color: white;
+}
+
+/* ===================== PÁGINA RESERVA ===================== */
+
+.container-reserva {
+  margin-top: 60px;
+}
+
+.poster-img {
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.form-box-reserva {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.form-box-reserva label {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.form-box-reserva .form-control {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.btn-confirmar {
+  background-color: #28a745;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-confirmar:hover {
+  background-color: #218838;
+}
+
+.imdb-box {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
 
 
 
+/* ===================== POPUP PÁGINA INICIAL ===================== */
+
+.popup-confirma {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #0f2d56;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+  font-family: sans-serif;
+}
+
+.popup-close-img {
+  float: right;
+  width: 14px !important;
+  height: 14px !important;
+  cursor: pointer;
+  margin-left: 10px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.popup-close-img:hover {
+  opacity: 1;
+}
+
+/* ===================== FILTROS DE FILMES (pagina_filmes.php) ===================== */
+
+.filtros-filmes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.filtros-filmes label {
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-right: 6px;
+}
+
+.filtros-filmes select,
+.filtros-filmes input {
+  height: 38px;
+  font-size: 14px;
+  padding: 6px 10px;
+  line-height: 1.4;
+}
+
+.filtros-filmes .pesquisa-input {
+  width: 220px;
+  margin-top: 1px; /* CORREÇÃO FINAL do desalinhamento */
+}
+
+.filtros-filmes .btn-procurar {
+  height: 38px;
+  padding: 6px 16px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.2s;
+}
+
+.filtros-filmes .btn-procurar:hover {
+  background-color: black;
+  color: white;
+}
 
 

@@ -11,44 +11,33 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-
-
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
-<body>
+<>
 
-  <?php
-  ob_start();
-  session_start();
-
-  if (isset($_SESSION["idUtilizador"])) {
-    $idUtilizador = $_SESSION["idUtilizador"];
-    $nome = $_SESSION["nome"];
-    $tipoUtilizador = $_SESSION["tipoUtilizador"];
-    unset($_SESSION);
-    $_SESSION["idUtilizador"] = $idUtilizador;
-    $_SESSION["nome"] = $nome;
-    $_SESSION["tipoUtilizador"] = $tipoUtilizador;
-  }
+  <?php include "./nav_bar_menus.php";
+  if (isset($_SESSION['idUtilizador'])) {
+    header("Location: pagina_inicial.php");
+    exit();
+}
   ?>
 
-<?php include "./nav_bar_menus.php"; ?>
-
+  <main>
   <section class="section-form-login-criar">
     <div class="container-login-criar ">
       <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
       <p class="text-white-50 mb-5">Introduza o seu email e password</p>
       <form method="GET" id="formulario">
         <div data-mdb-input-init class="form-outline form-white mb-3">
+        <label class="form-label">Email</label>
           <input type="email" class="form-control form-control-lg" name="email" required />
-          <label class="form-label">Email</label>
         </div>
         <div data-mdb-input-init class="form-outline form-white mb-3">
+        <label class="form-label">Password</label>
           <input type="password" class="form-control form-control-lg" name="password" required />
-          <label class="form-label">Password</label>
         </div>
         <p class="small mb-5 pb-lg-2" data-toggle="modal" data-target="#recuperarPassword"><a class="text-white-50">Esqueceu-se da password?</a></p>
         <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg px-5" type="submit" name="login">Login</button>
@@ -136,7 +125,13 @@
             setTimeout(function() {
               window.location.href = 'login.php';
             }, 3000)
-          } else {
+          
+          }else if (mensagem[0] === 'Contactar Administrador') {
+            setTimeout(function() {
+              window.location.href = 'contactos.php';
+            }, 3000)
+
+          } else{
             setTimeout(function() {
               window.location.href = 'pagina_inicial.php';
             }, 3000)
@@ -193,7 +188,9 @@
     </div>
   </div>
 
-  <?php include "./footer.php"; ?>
+  </main>
+  <div class="footer-spacer"></div>
+  <?php include_once('footer.php'); ?>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

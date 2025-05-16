@@ -3,6 +3,7 @@ session_start();
 
 include "../basedados/basedados.h";
 include './Constantes_Utilizadores.php';
+include "./funcoesAuxiliares.php";
 
 if (isset($_GET["email"]) && isset($_GET["password"])) {
 
@@ -14,26 +15,36 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
 	$mensagem = array();
 
 	//Consulta à base de dados
-	$sql = "SELECT * FROM utilizador WHERE email = '$email' AND password = '" . md5($password) . "' AND tipoUtilizador != " . CLIENTE_APAGADO . ";";
+	$sql = "SELECT * FROM utilizador WHERE email = '$email' AND password = '" . md5($password) . "';";
 	$retval = mysqli_query($conn, $sql);
 	if (!$retval) {
 		die('Could not get data: ' . mysqli_error($conn)); // se não funcionar dá erro
 	}
 
-	$row = mysqli_fetch_array($retval);
+	$linha = mysqli_fetch_array($retval);
 
 	//Validação efetuada, estabelecer as variáveis de sessão para identificar o utilizador
-	if ($row ==1 ) {
-		if (strcmp($row["email"], $email) == 0 && strcmp($row["password"], md5($password)) == 0) {
-			$_SESSION["idUtilizador"] = $row["idUtilizador"];
-			$_SESSION["nome"] = $row["nome"];
-			$_SESSION["tipoUtilizador"] = $row["tipoUtilizador"];
+	if ($linha != 0) {
 
-			//Array para guardar os erros gerados durante a validação dos dados
-			array_push($mensagem, " Bem vindo, " . $_SESSION["nome"] . "");
-			
-		} 
+		$tipoUtilizador = $linha["tipoUtilizador"];
+
+		//Se o Utilizador já estiver registado no sistema mas não está válido ou está classificado como apagado
+
+		if ($tipoUtilizador == CLIENTE_NAO_VALIDO || $tipoUtilizador == CLIENTE_APAGADO) {
+			array_push($mensagem, "Contactar Administrador");
+		} else {
+			if (strcmp($linha["email"], $email) == 0 && strcmp($linha["password"], md5($password)) == 0) {
+				$_SESSION["idUtilizador"] = $linha["idUtilizador"];
+				$_SESSION["nome"] = $linha["nome"];
+				$_SESSION["tipoUtilizador"] = $linha["tipoUtilizador"];
+				$_SESSION["idade"] = calculoIdade($linha["dataNascimento"]);
+
+				//Array para guardar os erros gerados durante a validação dos dados
+				array_push($mensagem, " Bem vindo, " . $_SESSION["nome"] . "");
+			}
+		}
 	} else {
+
 		//Array para guardar os erros gerados durante a validação dos dados
 		array_push($mensagem, "Credenciais Invalidas!");
 	}
@@ -44,7 +55,6 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
 	//Fazer o encode para JS  para ser utilizado no modal na página login.php
 	echo json_encode($_SESSION['mensagem']);
 } else {
-
 	session_destroy();
 	header("refresh:0;url = ./pagina_inicial.php");
 }

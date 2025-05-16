@@ -1,63 +1,3 @@
-<?php
-include "../basedados/basedados.h";
-
-// Buscar géneros
-$generos = [];
-$sqlGenero = "SELECT idGenero, descricao FROM generofilme";
-$resGenero = mysqli_query($conn, $sqlGenero);
-while ($row = mysqli_fetch_assoc($resGenero)) {
-    $generos[] = $row;
-}
-
-// Buscar estados
-$estados = [];
-$sqlEstado = "SELECT idEstadoFilme, descricao FROM estadofilme";
-$resEstado = mysqli_query($conn, $sqlEstado);
-while ($row = mysqli_fetch_assoc($resEstado)) {
-    $estados[] = $row;
-}
-
-$id = $_GET['id'];
-$sql = "SELECT * FROM filme WHERE idFilme = $id";
-$resultado = mysqli_query($conn, $sql);
-$filme = mysqli_fetch_assoc($resultado);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nomeFilme = $_POST['nomeFilme'];
-    $idEstadoFilme = $_POST['idEstadoFilme'];
-    $descricao = $_POST['descricao'];
-    $idGenero = $_POST['idGenero'];
-
-    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
-        $nomeTemporario = $_FILES['imagem']['tmp_name'];
-        $imagem = basename($_FILES['imagem']['name']);
-        $caminhoDestino = "Imagens/" . $imagem;
-
-        // Move o ficheiro para a pasta /Imagens
-        if (move_uploaded_file($nomeTemporario, $caminhoDestino)) {
-            // Upload feito com sucesso
-        } else {
-            echo "Erro ao mover o ficheiro!";
-            exit;
-        }
-    } else {
-        // Nenhuma imagem nova foi enviada → manter a antiga
-        $imagem = $_POST['imagemAntiga'];
-    }
-
-    $sql = "UPDATE filme SET 
-            nomeFilme='$nomeFilme', 
-            idEstadoFilme='$idEstadoFilme', 
-            descricao='$descricao', 
-            idGenero='$idGenero', 
-            imagem='$imagem' 
-            WHERE idFilme = $id";
-
-    mysqli_query($conn, $sql);
-    header("Location: pagina_gestao_filmes.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -74,10 +14,80 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <?php
+    include_once('nav_bar_menus.php');
 
+
+    if ($tipoUtilizador != ADMINISTRADOR && $tipoUtilizador != EMPREGADO) {
+        header("Location: pagina_inicial.php");
+        exit();
+    }
+
+
+    // escolhe géneros
+    $generos = [];
+    $sqlGenero = "SELECT idGenero, descricao FROM generofilme";
+    $resGenero = mysqli_query($conn, $sqlGenero);
+    while ($row = mysqli_fetch_assoc($resGenero)) {
+        $generos[] = $row;
+    }
+
+    // escolhe estados
+    $estados = [];
+    $sqlEstado = "SELECT idEstadoFilme, descricao FROM estadofilme";
+    $resEstado = mysqli_query($conn, $sqlEstado);
+    while ($row = mysqli_fetch_assoc($resEstado)) {
+        $estados[] = $row;
+    }
+
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM filme WHERE idFilme = $id";
+    $resultado = mysqli_query($conn, $sql);
+    $filme = mysqli_fetch_assoc($resultado);
+
+    $classificacao = $filme['classificacao'];
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nomeFilme = $_POST['nomeFilme'];
+        $idEstadoFilme = $_POST['idEstadoFilme'];
+        $descricao = $_POST['descricao'];
+        $idGenero = $_POST['idGenero'];
+        $classificacao = $_POST['classificacao'];
+
+
+        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
+            $nomeTemporario = $_FILES['imagem']['tmp_name'];
+            $imagem = basename($_FILES['imagem']['name']);
+            $caminhoDestino = "Imagens/" . $imagem;
+
+            // Move o ficheiro para a pasta /Imagens
+            if (move_uploaded_file($nomeTemporario, $caminhoDestino)) {
+                // Upload feito com sucesso
+            } else {
+                echo "Erro ao mover o ficheiro!";
+                exit;
+            }
+        } else {
+            // Nenhuma imagem nova foi enviada → manter a antiga
+            $imagem = $_POST['imagemAntiga'];
+        }
+
+        $sql = "UPDATE filme SET 
+            nomeFilme='$nomeFilme', 
+            idEstadoFilme='$idEstadoFilme', 
+            descricao='$descricao', 
+            idGenero='$idGenero', 
+            imagem='$imagem',
+            classificacao='$classificacao'
+            WHERE idFilme = $id";
+
+        mysqli_query($conn, $sql);
+        header("Location: pagina_gestao_filmes.php");
+    }
+    ?>
     <section class="vh-100 gradient-custom ">
         <div class="d-flex justify-content-center align-items-center h-100 mt-5">
-            <div class="container-editar">
+            <div class="container-login-criar">
 
 
                 <h1 class="mb-4">Editar Filme</h1>
@@ -112,6 +122,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php endforeach; ?>
                     </select>
 
+           
+                     <?php editarClassificacao($classificacao)
+                     ?>
 
                     <label>Imagem (ficheiro):</label>
                     <input type="file" name="imagem" class="form-control" accept="image/*">
@@ -119,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <button type="submit" class="btn btn-primary">Guardar Alterações</button>
-                    <a href="pagina_gestao_filmes.php" class="btn btn-primary mt-3">Voltar</a>
+                    <a href="javascript:history.back()" class="btn btn-primary mt-3">Voltar</a>
 
 
                 </form>
@@ -127,6 +140,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     </section>
+
+    <?php include_once('footer.php'); ?>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
