@@ -106,7 +106,7 @@
                         <?php 
                             if(isset($idUtilizador) &&
                             ($idade<18 && ($classificacao == 0) || 
-                            ($idade>=18 && ($classificacao ==1 || $classificacao==0)))){
+                            ($idade>=18 && ($classificacao ==0 || $classificacao==1)))){
                             
                         ?>
 

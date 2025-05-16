@@ -104,6 +104,48 @@ function imagem($classificacao){
 }
 
 
+function descricaoClassificacao($classificacao){
+
+    switch($classificacao){
+        case 0: 
+            return "Menos de 18 anos";
+            break;
+        case 1:
+            return "Igual ou maior de 18 anos";
+            break;
+
+    }
+}
+
+
+
+
+
+function editarClassificacao($classificacao){
+
+    switch ($classificacao){
+        case 0: 
+            echo
+            "<label>Classificacao</label>" .
+                "<select name='classificacao' type='number' class='form-control mb-3'>" .
+                "<option value='$classificacao'>" . descricaoClassificacao($classificacao) . "</option>" .
+                "<option value=1>" . descricaoClassificacao(1)  . "</option>" . "</select>";
+            break;
+        case 1:
+            echo
+            "<label>Classificacao</label>" .
+                "<select name='classificacao' type='number' class='form-control mb-3'>" .
+                "<option value='$classificacao'>" . descricaoClassificacao($classificacao) . "</option>" .
+                "<option value=0>" . descricaoClassificacao(0)  . "</option>" . "</select>";
+            break;
+
+
+    }
+
+}
+
+
+
 
 
 ?>
