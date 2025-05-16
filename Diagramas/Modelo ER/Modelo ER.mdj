@@ -71,22 +71,6 @@
 										},
 										{
 											"_type": "ERDColumnView",
-											"_id": "AAAAAAGWLcK/gCq0uS0=",
-											"_parent": {
-												"$ref": "AAAAAAGVXSyUruXIFXI="
-											},
-											"model": {
-												"$ref": "AAAAAAGWLcK/cSqxZj0="
-											},
-											"font": "Arial;13;0",
-											"parentStyle": true,
-											"left": 165,
-											"top": 451,
-											"width": 223.01708984375,
-											"height": 13
-										},
-										{
-											"_type": "ERDColumnView",
 											"_id": "AAAAAAGVXTDg1uYC1X4=",
 											"_parent": {
 												"$ref": "AAAAAAGVXSyUruXIFXI="
@@ -97,7 +81,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 165,
-											"top": 466,
+											"top": 451,
 											"width": 223.01708984375,
 											"height": 13
 										},
@@ -113,7 +97,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 165,
-											"top": 481,
+											"top": 466,
 											"width": 223.01708984375,
 											"height": 13
 										},
@@ -129,7 +113,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 165,
-											"top": 496,
+											"top": 481,
 											"width": 223.01708984375,
 											"height": 13
 										},
@@ -145,7 +129,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 165,
-											"top": 511,
+											"top": 496,
 											"width": 223.01708984375,
 											"height": 13
 										},
@@ -161,7 +145,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 165,
-											"top": 526,
+											"top": 511,
 											"width": 223.01708984375,
 											"height": 13
 										},
@@ -177,7 +161,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 165,
-											"top": 541,
+											"top": 526,
 											"width": 223.01708984375,
 											"height": 13
 										}
@@ -187,7 +171,7 @@
 									"left": 160,
 									"top": 431,
 									"width": 233.01708984375,
-									"height": 128
+									"height": 113
 								}
 							],
 							"font": "Arial;13;0",
@@ -195,7 +179,7 @@
 							"left": 160,
 							"top": 408,
 							"width": 233.01708984375,
-							"height": 151,
+							"height": 136,
 							"nameLabel": {
 								"$ref": "AAAAAAGVXSyUruXH9Bo="
 							},
@@ -420,6 +404,22 @@
 											"top": 527,
 											"width": 215,
 											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGW1TXfNve3Y0Y=",
+											"_parent": {
+												"$ref": "AAAAAAGVXUqTtOa7mZI="
+											},
+											"model": {
+												"$ref": "AAAAAAGW1TXfMfe0ogw="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 917,
+											"top": 542,
+											"width": 215,
+											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
@@ -427,7 +427,7 @@
 									"left": 912,
 									"top": 447,
 									"width": 225,
-									"height": 98
+									"height": 113
 								}
 							],
 							"font": "Arial;13;0",
@@ -435,7 +435,7 @@
 							"left": 912,
 							"top": 424,
 							"width": 225,
-							"height": 128,
+							"height": 136,
 							"nameLabel": {
 								"$ref": "AAAAAAGVXUqTtOa6rIA="
 							},
@@ -1087,7 +1087,7 @@
 									"font": "Arial;13;0",
 									"parentStyle": false,
 									"left": 265,
-									"top": 596,
+									"top": 589,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -1125,7 +1125,7 @@
 									"font": "Arial;13;0",
 									"parentStyle": false,
 									"left": 256,
-									"top": 578,
+									"top": 563,
 									"width": 19.5126953125,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -1144,7 +1144,7 @@
 							"tail": {
 								"$ref": "AAAAAAGVXS15T+Xliuk="
 							},
-							"points": "280:648;280:559",
+							"points": "280:648;280:544",
 							"nameLabel": {
 								"$ref": "AAAAAAGVj9fEzKuhZEY="
 							},
@@ -1263,7 +1263,7 @@
 									"font": "Arial;13;0",
 									"parentStyle": false,
 									"left": 1017,
-									"top": 597,
+									"top": 601,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -1301,7 +1301,7 @@
 									"font": "Arial;13;0",
 									"parentStyle": false,
 									"left": 1008,
-									"top": 571,
+									"top": 579,
 									"width": 19.5126953125,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -1320,7 +1320,7 @@
 							"tail": {
 								"$ref": "AAAAAAGVXVWjjedw2Ak="
 							},
-							"points": "1032:656;1032:552",
+							"points": "1032:656;1032:560",
 							"nameLabel": {
 								"$ref": "AAAAAAGVj9k/R6vk2WU="
 							},
@@ -1418,48 +1418,6 @@
 							"headNameLabel": {
 								"$ref": "AAAAAAGVj9oaGqwMGfE="
 							}
-						},
-						{
-							"_type": "UMLTextBoxView",
-							"_id": "AAAAAAGVj+kzG6wvEpw=",
-							"_parent": {
-								"$ref": "AAAAAAGVXSxdwuXAcSI="
-							},
-							"font": "Arial;13;0",
-							"parentStyle": false,
-							"left": 112,
-							"top": 896,
-							"width": 304,
-							"height": 48,
-							"text": "O Utilizador tem de ter um tipo\nUm tipo de utilizador pode ou não ter utilizadores"
-						},
-						{
-							"_type": "UMLTextBoxView",
-							"_id": "AAAAAAGVj+pMjaw5MJg=",
-							"_parent": {
-								"$ref": "AAAAAAGVXSxdwuXAcSI="
-							},
-							"font": "Arial;13;0",
-							"parentStyle": false,
-							"left": 464,
-							"top": 888,
-							"width": 336,
-							"height": 64,
-							"text": "Uma Reserva tem de ter obrigatoriamente um utilizador,\num estado e um filme\n\nUm estado em particular pode não ter filmes atribuidos\n"
-						},
-						{
-							"_type": "UMLTextBoxView",
-							"_id": "AAAAAAGVj+unJaxDyGg=",
-							"_parent": {
-								"$ref": "AAAAAAGVXSxdwuXAcSI="
-							},
-							"font": "Arial;13;0",
-							"parentStyle": false,
-							"left": 864,
-							"top": 872,
-							"width": 296,
-							"height": 72,
-							"text": "Um filme tem de ter obrigatoriamente um genero e um estado\n\nUm estado ou genero em particular pode não ter filmes atribuidos"
 						},
 						{
 							"_type": "ERDEntityView",
@@ -1884,22 +1842,13 @@
 						},
 						{
 							"_type": "ERDColumn",
-							"_id": "AAAAAAGWLcK/cSqxZj0=",
-							"_parent": {
-								"$ref": "AAAAAAGVXSyUruXENpQ="
-							},
-							"name": "nome",
-							"type": "varchar",
-							"length": "60"
-						},
-						{
-							"_type": "ERDColumn",
 							"_id": "AAAAAAGVXTDg0uX//j0=",
 							"_parent": {
 								"$ref": "AAAAAAGVXSyUruXENpQ="
 							},
-							"name": "email",
-							"length": 0,
+							"name": "nomeUtilizador",
+							"type": "varchar",
+							"length": "60",
 							"unique": true
 						},
 						{
@@ -2151,6 +2100,16 @@
 							"name": "imagem",
 							"type": "varchar",
 							"length": "60"
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGW1TXfMfe0ogw=",
+							"_parent": {
+								"$ref": "AAAAAAGVXUqTtOa3ZcM="
+							},
+							"name": "classificacao",
+							"type": "int",
+							"length": "1"
 						}
 					]
 				},
@@ -2401,7 +2360,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGVXVHvYeckDRo="
 							},
-							"name": "estadoReserva",
+							"name": "idEstadoReserva",
 							"type": "int",
 							"length": "1",
 							"foreignKey": true

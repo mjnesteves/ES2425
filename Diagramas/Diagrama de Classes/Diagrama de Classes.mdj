@@ -159,7 +159,7 @@
 											"top": 421,
 											"width": 159,
 											"height": 13,
-											"text": "+nomeUtilizador",
+											"text": "+nome",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4634,8 +4634,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGVjr+dESlWlXM="
 							},
-							"name": "nomeUtilizador",
-							"type": ""
+							"name": "nome"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4922,7 +4921,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGVjtSSoSoV7zk="
 							},
-							"name": "idLoja"
+							"name": "idLoja",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -5319,7 +5319,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGVlbSLfAs+hdI="
 							},
-							"name": "idLoja"
+							"name": "idLoja",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5327,7 +5328,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGVlbSLfAs+hdI="
 							},
-							"name": "nomeLoja"
+							"name": "nomeLoja",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5335,7 +5337,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGVlbSLfAs+hdI="
 							},
-							"name": "morada"
+							"name": "morada",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5343,7 +5346,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGVlbSLfAs+hdI="
 							},
-							"name": "telefone"
+							"name": "telefone",
+							"type": ""
 						}
 					],
 					"operations": [
