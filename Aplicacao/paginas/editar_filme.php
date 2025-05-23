@@ -45,15 +45,11 @@
     $resultado = mysqli_query($conn, $sql);
     $filme = mysqli_fetch_assoc($resultado);
 
-    $classificacao = $filme['classificacao'];
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nomeFilme = $_POST['nomeFilme'];
         $idEstadoFilme = $_POST['idEstadoFilme'];
         $descricao = $_POST['descricao'];
         $idGenero = $_POST['idGenero'];
-        $classificacao = $_POST['classificacao'];
-
 
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
             $nomeTemporario = $_FILES['imagem']['tmp_name'];
@@ -77,8 +73,7 @@
             idEstadoFilme='$idEstadoFilme', 
             descricao='$descricao', 
             idGenero='$idGenero', 
-            imagem='$imagem',
-            classificacao='$classificacao'
+            imagem='$imagem' 
             WHERE idFilme = $id";
 
         mysqli_query($conn, $sql);
@@ -122,9 +117,6 @@
                         <?php endforeach; ?>
                     </select>
 
-           
-                     <?php editarClassificacao($classificacao)
-                     ?>
 
                     <label>Imagem (ficheiro):</label>
                     <input type="file" name="imagem" class="form-control" accept="image/*">
