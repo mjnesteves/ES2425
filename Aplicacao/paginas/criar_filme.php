@@ -69,7 +69,7 @@
 
     <section class="vh-100 gradient-custom ">
         <div class="d-flex justify-content-center align-items-center h-100 ">
-            <div class="container-cfilme mb-0 md-5 mt-0 md-4 pb-5">
+            <div class="container-cfilme ">
                 <h1 class="mb-4">Criar Novo Filme</h1>
                 <form method="POST" enctype="multipart/form-data">
                     <label>Nome do Filme:</label>
@@ -91,9 +91,8 @@
                             <option value="<?= $genero['idGenero'] ?>"><?= $genero['descricao'] ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <label>Classificacao</label>
-                     <?php classificacao ()
-                     ?>
+                    <label class="my-2">Classificação:</label>
+                     <?php classificacao()?>
 
 
                     <label>Imagem (ficheiro):</label>

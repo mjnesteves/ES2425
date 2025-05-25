@@ -72,11 +72,10 @@
     $resultado = mysqli_stmt_get_result($stmt);
     ?>
 
-    <main class="flex-grow-1 d-flex flex-column">
-    <section class="mt-0"></section>
-
+    <main>
+    
         <section class="Filmes">
-            <div class="container">
+            <div class="container" style="margin-top: 50px;">
                 <h2><strong>Filmes <?= $nomeGenero ? 'de ' . htmlspecialchars($nomeGenero) : '' ?></strong></h2>
                 <hr>
                 <p>______________________________________</p>
@@ -128,7 +127,6 @@
             </div>
         </section>
 
-        <section class="mb-5"></section>
     </main>
 
     <?php include_once('footer.php'); ?>

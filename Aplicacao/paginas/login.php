@@ -126,10 +126,10 @@
               window.location.href = 'login.php';
             }, 3000)
           
-          }else if (mensagem[0] === 'Contactar Administrador') {
+          }else if (mensagem[0] === 'Contactar Administrador, conta suspensa!') {
             setTimeout(function() {
-              window.location.href = 'contactos.php';
-            }, 3000)
+              window.location.href = './ajuda.php';
+            }, 5000)
 
           } else{
             setTimeout(function() {

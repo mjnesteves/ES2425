@@ -69,7 +69,8 @@ body {
 .menu-icon {
   height: 35px;
   width: auto;
-  filter: brightness(0) invert(1); /* deixa os ícones brancos */
+  filter: brightness(0) invert(1);
+  /* deixa os ícones brancos */
   cursor: pointer;
   transition: filter 0.3s ease;
 }
@@ -203,9 +204,10 @@ section {
 
 .banner-full {
   width: 100%;
-  margin-top: 0; /* Corrigido para encostar à navbar */
+  margin-top: 0;
+  /* Corrigido para encostar à navbar */
   background-color: #000;
-  overflow:visible;
+  overflow: visible;
   position: relative;
 }
 
@@ -322,7 +324,8 @@ section {
 }
 
 .footer-spacer {
-  height: calc(100vh - 200px) !important; /* altura mínima do ecrã - conteúdo médio estimado */
+  height: calc(100vh - 200px) !important;
+  /* altura mínima do ecrã - conteúdo médio estimado */
 }
 
 
@@ -349,8 +352,8 @@ section {
   background-color: #000;
   border-color: #000;
   color: #fff;
-        font-weight: bold;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 .btn-primary:hover {
@@ -411,7 +414,7 @@ section {
     display: block;
   }
 
-  .btn-login{
+  .btn-login {
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid #000;
@@ -427,7 +430,8 @@ section {
 
 /* ===================== LAYOUT GLOBAL ===================== */
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -460,18 +464,20 @@ textarea {
 
 /* ===================== PÁGINA CRIAR UTILIZADOR e LOGIN ===================== */
 
-.section-form-login-criar{
-  padding:auto;
+.section-form-login-criar {
+  padding: auto;
 
 }
+
 /* Este container está a ser usado também para a página editar-filme */
 .container-login-criar {
-  margin:auto;
+  margin: auto;
   margin-top: 3rem;
   background-color: rgba(0, 0, 0, 0.95);
   padding: 2rem;
   border-radius: 1rem;
   max-width: 500px;
+  margin-bottom: 100px;
 }
 
 .cantos_tabela {
@@ -496,6 +502,7 @@ th,
 td {
   color: white;
 }
+
 
 a.btn {
   margin-bottom: 1rem;
@@ -579,7 +586,7 @@ a.btn {
   color: white;
   padding: 15px 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 9999;
   font-family: sans-serif;
 }
@@ -626,7 +633,8 @@ a.btn {
 
 .filtros-filmes .pesquisa-input {
   width: 220px;
-  margin-top: 1px; /* CORREÇÃO FINAL do desalinhamento */
+  margin-top: 1px;
+  /* CORREÇÃO FINAL do desalinhamento */
 }
 
 .filtros-filmes .btn-procurar {
@@ -647,4 +655,266 @@ a.btn {
   color: white;
 }
 
+.select-com-seta {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 10px center;
+  background-color: #343a40;
+  color: white;
+  padding-right: 35px;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
 
+.select-com-seta:focus {
+  outline: none;
+  border-color: #66afe9;
+}
+
+
+/* ========================== FAQ =============================== */
+
+.paragrafo-faq {
+  text-align: center;
+
+}
+
+.container-faq {
+  margin: auto;
+  background-color: rgba(17, 27, 37, 1);
+  padding: 50px;
+  border-radius: 2rem;
+  max-width: 700px;
+  box-shadow:
+    0 27px 37px rgba(0, 0, 0, 0.9),
+    inset 0 7px 17px rgba(0, 0, 0, 0.7);
+
+}
+
+
+.botoes-faq {
+  height: 50px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+
+.nav-tabs-faq {
+  border-bottom: none;
+}
+
+
+
+
+
+
+.nav-link-faq {
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: white;
+  background-color: rgb(47, 58, 70);
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  box-shadow:
+    0 27px 37px rgba(0, 0, 0, 0.9),
+    inset 0 7px 17px rgba(0, 0, 0, 0.7);
+}
+
+.nav-link-faq:hover {
+  background-color: rgb(47, 58, 70);
+  color: white;
+  text-decoration: none;
+
+}
+
+.nav-link-faq.active {
+  background-color: rgba(17, 27, 37, 1);
+  color: #fff;
+  box-shadow:
+    0 27px 37px rgba(0, 0, 0, 0.9),
+
+}
+
+
+
+.w-full {
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  background-color: rgb(47, 58, 70);
+  border: 0px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+
+.focus\:outline-none:focus {
+  outline: 3px solid co;
+  outline-color: white;
+}
+
+.w-6 {
+  width: 2rem;
+}
+
+.h-6 {
+  height: 2rem;
+}
+
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.max-h-0 {
+  max-height: 0px;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.max-w-xl {
+  width: 600px;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+
+}
+
+.space-y-6> :not([hidden])~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rotate-180 {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+
+.espaco {
+  width: 450px;
+}
+
+.body-faq {
+
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Imagens/background.png');
+}
+
+.texto {
+  text-align: justify;
+}
+
+.formulario-contacto{
+  padding: 0px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center; 
+  position: relative;
+}
+
+
+.modal-body {
+  text-align: center;
+  display: flex;
+  justify-content: center; 
+  position: relative;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center; 
+  position: relative;
+}
+
+.container-loja{
+  color: white;
+}
+
+.container-contactos {
+  margin: auto;
+  margin-bottom: 125px;
+  background-color: rgba(17, 27, 37, 1);
+  padding: 50px;
+  border-radius: 2rem;
+  max-width: 850px;
+  box-shadow:
+    0 27px 37px rgba(0, 0, 0, 0.9),
+    inset 0 7px 17px rgba(0, 0, 0, 0.7);
+
+}
+
+.largura-contactos {
+  max-width: 800px;
+}
+
+.mapa{
+    border-radius: 1rem;
+    border: 0px;
+}
+
+
+.equipa {
+  text-align: center;
+  color: white;
+  
+}

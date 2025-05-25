@@ -45,15 +45,12 @@
     $resultado = mysqli_query($conn, $sql);
     $filme = mysqli_fetch_assoc($resultado);
 
-    $classificacao = $filme['classificacao'];
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nomeFilme = $_POST['nomeFilme'];
         $idEstadoFilme = $_POST['idEstadoFilme'];
         $descricao = $_POST['descricao'];
         $idGenero = $_POST['idGenero'];
         $classificacao = $_POST['classificacao'];
-
 
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
             $nomeTemporario = $_FILES['imagem']['tmp_name'];
@@ -79,6 +76,7 @@
             idGenero='$idGenero', 
             imagem='$imagem',
             classificacao='$classificacao'
+
             WHERE idFilme = $id";
 
         mysqli_query($conn, $sql);
@@ -88,8 +86,6 @@
     <section class="vh-100 gradient-custom ">
         <div class="d-flex justify-content-center align-items-center h-100 mt-5">
             <div class="container-login-criar">
-
-
                 <h1 class="mb-4">Editar Filme</h1>
                 <form method="POST" enctype="multipart/form-data">
                     <label>Nome do Filme:</label>
@@ -122,9 +118,9 @@
                         <?php endforeach; ?>
                     </select>
 
-           
-                     <?php editarClassificacao($classificacao)
-                     ?>
+                  <label class="my-2">Classificação:</label>
+                    <?php editarClassificacao($filme['classificacao'])
+                    ?>
 
                     <label>Imagem (ficheiro):</label>
                     <input type="file" name="imagem" class="form-control" accept="image/*">

@@ -69,7 +69,7 @@ $novoId = $rowMaxId['maxId'] + 1;
 $sqlReserva = "INSERT INTO reserva (idReserva, idUtilizador, dataReserva, dataLevantamento, idFilme, idEstadoReserva, idLoja)
                VALUES (?, ?, ?, ?, ?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sqlReserva);
-$idEstadoReserva = 1; // 1 = válida
+$idEstadoReserva = 4; // 4 = Em Espera
 if (mysqli_stmt_bind_param($stmt, "iissiii",$novoId, $idUtilizador, $dataReserva, $dataLevantamento, $idFilme, $idEstadoReserva, $idLoja) &&
     mysqli_stmt_execute($stmt)) {
 

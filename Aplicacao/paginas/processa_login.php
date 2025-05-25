@@ -31,7 +31,7 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
 		//Se o Utilizador já estiver registado no sistema mas não está válido ou está classificado como apagado
 
 		if ($tipoUtilizador == CLIENTE_NAO_VALIDO || $tipoUtilizador == CLIENTE_APAGADO) {
-			array_push($mensagem, "Contactar Administrador");
+			array_push($mensagem, "Contactar Administrador, conta suspensa!");
 		} else {
 			if (strcmp($linha["email"], $email) == 0 && strcmp($linha["password"], md5($password)) == 0) {
 				$_SESSION["idUtilizador"] = $linha["idUtilizador"];
