@@ -25,10 +25,10 @@
 
   <ul class="nav nav-tabs-faq botoes-faq" id="myTab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link-faq active" id="faq-tab" data-toggle="tab" href="#faq" role="tab" aria-controls="faq" aria-selected="true">Questões Frequentes</a>
+      <a class="nav-link-faq" id="faq-tab" data-toggle="tab" href="#faq" role="tab" aria-controls="faq" aria-selected="false">Questões Frequentes</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link-faq" id="contactos-tab" data-toggle="tab" href="#contactos" role="tab" aria-controls="contactos" aria-selected="false">Contacte-nos</a>
+      <a class="nav-link-faq active" id="contactos-tab" data-toggle="tab" href="#contactos" role="tab" aria-controls="contactos" aria-selected="true">Contacte-nos</a>
     </li>
     <li class="nav-item">
       <a class="nav-link-faq" id="lojas-tab" data-toggle="tab" href="#lojas" role="tab" aria-controls="lojas" aria-selected="false">Lojas</a>
@@ -38,8 +38,9 @@
     </li>
   </ul>
 
+
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="faq" role="tabpanel" aria-labelledby="faq-tab">
+    <div class="tab-pane fade" id="faq" role="tabpanel" aria-labelledby="faq-tab">
       <div class="container-faq">
         <div class="max-w-xl">
           <h2 class="text-4xl font-extrabold pb-4 text-center text-white">Questões Frequentes</h2>
@@ -210,7 +211,7 @@
     </div>
 
 
-    <div class="tab-pane fade" id="contactos" role="tabpanel" aria-labelledby="contactos-tab">
+    <div class="tab-pane fade show active" id="contactos" role="tabpanel" aria-labelledby="contactos-tab">
       <div class="container-faq">
         <div class="max-w-xl">
           <h2 class="text-4xl font-extrabold pb-4 text-center text-white">Formulário de Contacto</h2>

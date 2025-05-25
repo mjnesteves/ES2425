@@ -477,6 +477,7 @@ textarea {
   padding: 2rem;
   border-radius: 1rem;
   max-width: 500px;
+  margin-bottom: 100px;
 }
 
 .cantos_tabela {
@@ -501,6 +502,7 @@ th,
 td {
   color: white;
 }
+
 
 a.btn {
   margin-bottom: 1rem;
