@@ -45,6 +45,8 @@
         <div class="max-w-xl">
           <h2 class="text-4xl font-extrabold pb-4 text-center text-white">Questões Frequentes</h2>
           <div class="space-y-6">
+
+
             <!-- Item 1 -->
             <div class="shadow-md rounded-lg">
               <button
@@ -54,7 +56,7 @@
                 aria-controls="content-1"
                 id="faq-button-1">
                 <span class="text-lg text-white font-semibold espaco">
-                  Qual o prazo máximo para entrega após o aluguer de um filme?
+                 Como faço para criar uma conta?
                 </span>
                 <svg
                   id="icon-plus-1"
@@ -81,28 +83,33 @@
                 role="region"
                 aria-labelledby="faq-button-1">
                 <p class="p-4 texto">
-                  Após a aquisição do filme previamente reservado, o cliente irá ter um prazo máximo de 72h
-                  para fazer a devolução do mesmo. A entrega terá de ser feita na mesma loja à qual fez a aquisição.
+                 Na página inicial -> ícone de perfil -> Criar Conta.<br>
+                 Após o preenchimento da informação solicitada, pode fazer login.<br>
+                 Assim que fizer login, é redirecionado automaticamente para a página de filmes.
                 </p>
               </div>
             </div>
 
-            <!-- Item 2 -->
-            <div class="bg-gray-800 shadow-md rounded-lg">
+
+
+
+              <!-- Item 2 -->
+            <div class="shadow-md rounded-lg">
               <button
-                class="w-full flex items-center justify-between p-4 focus:outline-none"
+                class="w-full flex items-center justify-between p-4 focus:outline-none "
                 onclick="toggleItem(2)"
                 aria-expanded="false"
                 aria-controls="content-2"
                 id="faq-button-2">
-                <span class="text-lg font-semibold espaco text-white">
-                  Em caso de reserva, esta será disponibilizada no próprio dia?</span>
+                <span class="text-lg text-white font-semibold espaco">
+                 Esqueci-me da password. Como recuperar?
+                </span>
                 <svg
                   id="icon-plus-2"
                   class="w-6 h-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20">
-                  
+             
                   <path
                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" />
                 </svg>
@@ -111,7 +118,7 @@
                   class="w-6 h-6 text-white hidden"
                   fill="currentColor"
                   viewBox="0 0 20 20">
-               
+             
                   <path
                     d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" />
                 </svg>
@@ -121,27 +128,32 @@
                 class="text-white overflow-hidden max-h-0 transition-all duration-500"
                 role="region"
                 aria-labelledby="faq-button-2">
-                <p class="p-4 texto"> Sim, iremos assegurar a maior eficácia para a boa continuidade dos nossos clientes, de modo que após 15 minutos poderá estar
-                  presente na loja para fazer o levantamento do filme resevado.</p>
+                <p class="p-4 texto">
+                Na página de Login, clica em <i><u>Esqueceu-se da password.</u></i><br>
+                Após colocares o teu email, vais ser contactado pelo serviço para recuperares o teu acesso.
+                </p>
               </div>
             </div>
 
-            <!-- Item 3 -->
-            <div class="bg-gray-800 shadow-md rounded-lg">
+
+
+                        <!-- Item 3 -->
+            <div class="shadow-md rounded-lg">
               <button
-                class="w-full flex items-center justify-between p-4 focus:outline-none"
+                class="w-full flex items-center justify-between p-4 focus:outline-none "
                 onclick="toggleItem(3)"
                 aria-expanded="false"
                 aria-controls="content-3"
                 id="faq-button-3">
-                <span class="text-lg font-semibold espaco text-white">
-                  Caso não haja disponibilidade, é necessário ser o próprio a ir buscar à loja o filme reservado?</span>
+                <span class="text-lg text-white font-semibold espaco">
+                A minha conta está inválida. Como proceder?
+                </span>
                 <svg
                   id="icon-plus-3"
                   class="w-6 h-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20">
-                
+             
                   <path
                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" />
                 </svg>
@@ -150,7 +162,7 @@
                   class="w-6 h-6 text-white hidden"
                   fill="currentColor"
                   viewBox="0 0 20 20">
-                 
+             
                   <path
                     d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" />
                 </svg>
@@ -160,23 +172,152 @@
                 class="text-white overflow-hidden max-h-0 transition-all duration-500"
                 role="region"
                 aria-labelledby="faq-button-3">
+                <p class="p-4 texto">
+                Se a tua conta se encontra no estado de inválida, és redirecionado automáticamente para o formulário de contacto.<br>
+                Envia-nos um pedido para averiguar o que aconteceu.<br>
+                Por motivos de segurança, a tua conta é bloqueada após várias tentativas de login, sem sucesso.
+                </p>
+              </div>
+            </div>
+
+
+
+
+
+
+            <!-- Item 4 -->
+            <div class="shadow-md rounded-lg">
+              <button
+                class="w-full flex items-center justify-between p-4 focus:outline-none "
+                onclick="toggleItem(4)"
+                aria-expanded="false"
+                aria-controls="content-4"
+                id="faq-button-4">
+                <span class="text-lg text-white font-semibold espaco">
+                  Qual o prazo máximo para entrega após o aluguer de um filme?
+                </span>
+                <svg
+                  id="icon-plus-4"
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20">
+             
+                  <path
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" />
+                </svg>
+                <svg
+                  id="icon-minus-4"
+                  class="w-6 h-6 text-white hidden"
+                  fill="currentColor"
+                  viewBox="0 0 20 20">
+             
+                  <path
+                    d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" />
+                </svg>
+              </button>
+              <div
+                id="content-4"
+                class="text-white overflow-hidden max-h-0 transition-all duration-500"
+                role="region"
+                aria-labelledby="faq-button-4">
+                <p class="p-4 texto">
+                  Após a aquisição do filme previamente reservado, o cliente irá ter um prazo máximo de 72h
+                  para fazer a devolução do mesmo. A entrega terá de ser feita na mesma loja à qual fez a aquisição.
+                </p>
+              </div>
+            </div>
+
+
+            <!-- Item 5 -->
+            <div class="bg-gray-800 shadow-md rounded-lg">
+              <button
+                class="w-full flex items-center justify-between p-4 focus:outline-none"
+                onclick="toggleItem(5)"
+                aria-expanded="false"
+                aria-controls="content-5"
+                id="faq-button-2">
+                <span class="text-lg font-semibold espaco text-white">
+                  Em caso de reserva, esta será disponibilizada no próprio dia?</span>
+                <svg
+                  id="icon-plus-5"
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20">
+                  
+                  <path
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" />
+                </svg>
+                <svg
+                  id="icon-minus-5"
+                  class="w-6 h-6 text-white hidden"
+                  fill="currentColor"
+                  viewBox="0 0 20 20">
+               
+                  <path
+                    d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" />
+                </svg>
+              </button>
+              <div
+                id="content-5"
+                class="text-white overflow-hidden max-h-0 transition-all duration-500"
+                role="region"
+                aria-labelledby="faq-button-5">
+                <p class="p-4 texto"> Sim, iremos assegurar a maior eficácia para a boa continuidade dos nossos clientes, de modo que após 15 minutos poderá estar
+                  presente na loja para fazer o levantamento do filme resevado.</p>
+              </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="bg-gray-800 shadow-md rounded-lg">
+              <button
+                class="w-full flex items-center justify-between p-4 focus:outline-none"
+                onclick="toggleItem(6)"
+                aria-expanded="false"
+                aria-controls="content-6"
+                id="faq-button-6">
+                <span class="text-lg font-semibold espaco text-white">
+                  Caso não haja disponibilidade, é necessário ser o próprio a ir buscar à loja o filme reservado?</span>
+                <svg
+                  id="icon-plus-6"
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20">
+                
+                  <path
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" />
+                </svg>
+                <svg
+                  id="icon-minus-6"
+                  class="w-6 h-6 text-white hidden"
+                  fill="currentColor"
+                  viewBox="0 0 20 20">
+                 
+                  <path
+                    d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" />
+                </svg>
+              </button>
+              <div
+                id="content-6"
+                class="text-white overflow-hidden max-h-0 transition-all duration-500"
+                role="region"
+                aria-labelledby="faq-button-6">
                 <p class="p-4 texto">Desde que a pessoa tenha os dados necessários para fazer o levantamento da entrega, então não será necessário a presença do próprio.</p>
               </div>
             </div>
 
 
-            <!-- Item 4 -->
+            <!-- Item 7 -->
             <div class="bg-gray-800 shadow-md rounded-lg">
               <button
                 class="w-full flex items-center justify-between p-4 focus:outline-none"
-                onclick="toggleItem(4)"
+                onclick="toggleItem(7)"
                 aria-expanded="false"
-                aria-controls="content-4"
-                id="faq-button-2">
+                aria-controls="content-7"
+                id="faq-button-7">
                 <span class="text-lg font-semibold espaco text-white">
                   Qual a janela temporal, entre o lançamento dos filmes e a disponibilidade para aluguer?</span>
                 <svg
-                  id="icon-plus-4"
+                  id="icon-plus-7"
                   class="w-6 h-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20">
@@ -185,7 +326,7 @@
                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" />
                 </svg>
                 <svg
-                  id="icon-minus-4"
+                  id="icon-minus-7"
                   class="w-6 h-6 text-white hidden"
                   fill="currentColor"
                   viewBox="0 0 20 20">
@@ -195,16 +336,15 @@
                 </svg>
               </button>
               <div
-                id="content-4"
+                id="content-7"
                 class="text-white overflow-hidden max-h-0  transition-all duration-500"
                 role="region"
-                aria-labelledby="faq-button-4">
+                aria-labelledby="faq-button-7">
                 <p class="p-4 texto">Estamos em constante atualização com os filmes que saem na atualidade, grantindo assim a maior eficácio e a possibilidade de
                   visualizar os filmes atuais no conforto da sua casa.</p>
               </div>
             </div>
 
-            <!-- Add more items as needed -->
           </div>
         </div>
       </div>
@@ -319,14 +459,16 @@
           <h2 class="pb-4 text-center equipa">Equipa Técnica</h2>
 
            <h5 class="equipa">Luís Laia 20181127</h5>
+		   <h5 class="equipa">Marcelo Esteves 62006091 </h5>
             <h5 class="equipa">Nuno Matos 20231632 </h5>
            <h5 class="equipa">Tiago Mendes 20221685</h5>
            <h5 class="equipa">Rodrigo Lopes 20230321 </h5>
-           <h5 class="equipa">Marcelo Esteves 62006091 </h5>
+           
           <h5>
         </div>
       </div>
     </div>
+  </div>
 
 
     <!-- Modal HTML -->
@@ -347,6 +489,10 @@
         </div>
       </div>
     </div>
+
+  <div class="footer-spacer"></div>
+  <?php include_once('footer.php'); ?>
+
 
 
     <script>
@@ -382,8 +528,6 @@
         transform: translateY(0rem);
       }
     </style>
-
-
     <script>
       function toggleItem(id) {
         const content = document.getElementById(`content-${id}`);
@@ -403,7 +547,6 @@
         }
       }
     </script>
-    <?php include "./footer.php"; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

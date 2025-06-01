@@ -46,7 +46,7 @@
 
     ?>
 
-
+<main>
     <section class="section-form-login-criar">
         <div class="container-login-criar">
             <h1 class="mb-4">Atualizar informacao <?php echo ($nome) ?></h1>
@@ -108,7 +108,7 @@
             </div>
         </div>
     </div>
-
+</main>
 
     <script>
         var mensagem;
