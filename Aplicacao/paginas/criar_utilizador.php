@@ -15,72 +15,73 @@
 
     <?php include "./nav_bar_menus.php"; ?>
 
+    <main>
+        <section class="section-form-login-criar">
+            <div class="container-login-criar">
+                <h1 class="mb-4">Novo Utilizador</h1>
+                <form method="GET" id="formulario" action="./adicionarUtilizador.php">
+                    <?php
+                    if (isset($tipoUtilizador)) {
+                        listaTipoUtilizadorAdminCriar($tipoUtilizador);
 
-    <section class="section-form-login-criar">
-        <div class="container-login-criar">
-            <h1 class="mb-4">Novo Utilizador</h1>
-            <form method="GET" id="formulario" action="./adicionarUtilizador.php">
-                <?php
-                if (isset($tipoUtilizador)) {
-                    listaTipoUtilizadorAdminCriar($tipoUtilizador);
-                    
-                }
+                    }
 
-                ?>
+                    ?>
 
-                <label>Nome </label><text style="color:red;">*</text>
-                <input type="text" name="nome" class="form-control" required="">
+                    <label>Nome </label><text style="color:red;">*</text>
+                    <input type="text" name="nome" class="form-control" required="">
 
-                <label>Email </label><text style="color:red;">*</text>
-                <input type="email" name="email" class="form-control" required>
+                    <label>Email </label><text style="color:red;">*</text>
+                    <input type="email" name="email" class="form-control" required>
 
-                <label>Password </label><text style="color:red;">*</text>
-                <input type="password" name="password" class="form-control" required>
+                    <label>Password </label><text style="color:red;">*</text>
+                    <input type="password" name="password" class="form-control" required>
 
-                <label>Data de Nascimento </label><text style="color:red;">*</text>
-                <input type="date" name="dataNascimento" class="form-control" required>
+                    <label>Data de Nascimento </label><text style="color:red;">*</text>
+                    <input type="date" name="dataNascimento" class="form-control" required>
 
-                <label>Morada </label><text style="color:red;">*</text>
-                <input type="text" name="morada" class="form-control" required>
+                    <label>Morada </label><text style="color:red;">*</text>
+                    <input type="text" name="morada" class="form-control" required>
 
-                <label>Contacto </label><text style="color:red;">*</text>
+                    <label>Contacto </label><text style="color:red;">*</text>
 
-                <input type="number" name="telefone" class="form-control" required>
-
-
-                <p style="color:red;">* Campos Obrigatórios</p>
-
-                <button type="submit" class="btn btn-primary">Registar</button>
+                    <input type="number" name="telefone" class="form-control" required>
 
 
-                <a href="javascript:history.back()" class="btn btn-primary mt-3">Voltar</a>
+                    <p style="color:red;">* Campos Obrigatórios</p>
+
+                    <button type="submit" class="btn btn-primary">Registar</button>
 
 
-            </form>
-        </div>
-    </section>
-    <!-- Modal -->
-    <div class="modal fade" id="mostra_modal" tabindex="-1" role="dialog" aria-labelledby="mostra_modal"
-        aria-hidden="false">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header mt-1">
-                    <h3 class="font-weight-bold text-secondary text-center" id=info>Informação</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h3 class="font-weight-bold text-secondary text-center" id="criar_utilizador"> </h3>
+                    <a href="javascript:history.back()" class="btn btn-primary mt-3">Voltar</a>
 
-                </div>
-                <div class="modal-footer mx-auto">
-                    <button id="ajaxButton" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">ok</button>
+
+                </form>
+            </div>
+        </section>
+        <!-- Modal -->
+        <div class="modal fade" id="mostra_modal" tabindex="-1" role="dialog" aria-labelledby="mostra_modal"
+            aria-hidden="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header mt-1">
+                        <h3 class="font-weight-bold text-secondary text-center" id=info>Informação</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="font-weight-bold text-secondary text-center" id="criar_utilizador"> </h3>
+
+                    </div>
+                    <div class="modal-footer mx-auto">
+                        <button id="ajaxButton" class="btn btn-primary" data-toggle="modal"
+                            data-dismiss="modal">ok</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </main>
 
     <script>
         var mensagem;
@@ -115,9 +116,9 @@
                 success: function (response) {
                     if (mensagem[0] === 'Conta criada. Faça login!') {
                         window.location.href = 'login.php';
-                    } else if (mensagem[0] === 'Utilizador Adicionado!'){
+                    } else if (mensagem[0] === 'Utilizador Adicionado!') {
                         window.location.href = 'gestao_utilizadores.php';
-                    }else{
+                    } else {
                         location.reload()
                     }
                 },

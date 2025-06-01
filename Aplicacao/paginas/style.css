@@ -298,6 +298,7 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(6px);
   height: 100px;
+  margin-bottom: 0px;
 }
 
 .footer .footer-title {
@@ -706,10 +707,6 @@ a.btn {
 }
 
 
-
-
-
-
 .nav-link-faq {
   font-size: 1.5rem;
   border-radius: 1rem;
@@ -738,7 +735,6 @@ a.btn {
     0 27px 37px rgba(0, 0, 0, 0.9),
 
 }
-
 
 
 .w-full {
@@ -892,7 +888,6 @@ a.btn {
 
 .container-contactos {
   margin: auto;
-  margin-bottom: 125px;
   background-color: rgba(17, 27, 37, 1);
   padding: 50px;
   border-radius: 2rem;

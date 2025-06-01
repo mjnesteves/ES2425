@@ -345,7 +345,6 @@
               </div>
             </div>
 
-            <!-- Add more items as needed -->
           </div>
         </div>
       </div>
@@ -460,14 +459,16 @@
           <h2 class="pb-4 text-center equipa">Equipa Técnica</h2>
 
            <h5 class="equipa">Luís Laia 20181127</h5>
+		   <h5 class="equipa">Marcelo Esteves 62006091 </h5>
             <h5 class="equipa">Nuno Matos 20231632 </h5>
            <h5 class="equipa">Tiago Mendes 20221685</h5>
            <h5 class="equipa">Rodrigo Lopes 20230321 </h5>
-           <h5 class="equipa">Marcelo Esteves 62006091 </h5>
+           
           <h5>
         </div>
       </div>
     </div>
+  </div>
 
 
     <!-- Modal HTML -->
@@ -488,6 +489,10 @@
         </div>
       </div>
     </div>
+
+  <div class="footer-spacer"></div>
+  <?php include_once('footer.php'); ?>
+
 
 
     <script>
@@ -523,8 +528,6 @@
         transform: translateY(0rem);
       }
     </style>
-
-
     <script>
       function toggleItem(id) {
         const content = document.getElementById(`content-${id}`);
@@ -544,7 +547,6 @@
         }
       }
     </script>
-    <?php include "./footer.php"; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
