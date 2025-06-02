@@ -4,11 +4,11 @@ Projeto de desenvolvimento de software com utilização de metodologia SCRUM
 
 Autores:
 
-Marcelo Esteves 62006091
-Luís Laia 20181127
-Nuno Matos 20231632
-Tiago Mendes 20221685
-Rodrigo Lopes 20230321
+Marcelo Esteves 62006091 
+Luís Laia 20181127 
+Nuno Matos 20231632 
+Tiago Mendes 20221685 
+Rodrigo Lopes 20230321 
 
 Tema 6- Sistema de gestão para vídeo clube
 
