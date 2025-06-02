@@ -1,6 +1,18 @@
 Repositório da UC de Engenharia de Software 2024/2025
 
-6. Sistema de gestão para vídeo clube
+Projeto de desenvolvimento de software com utilização de metodologia SCRUM
+
+Autores:
+
+Marcelo Esteves 62006091
+Luís Laia 20181127
+Nuno Matos 20231632
+Tiago Mendes 20221685
+Rodrigo Lopes 20230321
+
+Tema 6- Sistema de gestão para vídeo clube
+
+Descrição:
 
 A empresa Codivideo (nome fictício) precisa de um software para gestão do seu vídeo clube. O sistema deverá permitir 3 tipos de acessos distintos (roles) que são: Administrador, Empregado e Utilizador.
 
